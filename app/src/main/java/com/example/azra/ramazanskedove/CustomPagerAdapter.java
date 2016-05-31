@@ -25,11 +25,12 @@ public class CustomPagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.custompager_item, collection, false);
 
+        TextView tvTitle = (TextView) layout.findViewById(R.id.tvTitle);
         TextView tvDoaAbrab = (TextView) layout.findViewById(R.id.tvDoaArab);
         TextView tvDoa = (TextView) layout.findViewById(R.id.tvDoa);
         TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadis);
 
-
+        tvTitle.setText(getPageTitle(position));
         tvDoaAbrab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
