@@ -1,6 +1,24 @@
 <resources>
     <string name="app_name">RamazanskeDove</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="day1_title">DAY 1</string>
+    <string name="day2_title">DAY 2</string>
+    <string name="day3_title">DAY 3</string>
+
+
+
+    <string name="day1">Allahu moj, učini u ovom danu moj post, postom pravih postača, namaz, namazom pravih klanjača, i probudi me u iz sna nehajnih i oprosti mi krivice u njemu o Gospodaru svijetova, i pomiluj me u ovom danu o Pomilovatelju griješnih.</string>
+    <string name="day2">Allahu moj, učini me ovog dana bliskim zadovoljstvu Tvome, udalji me u njemu od srdžbe i osvete Svoje, pomozi me u učenju ajeta Tvojih, tako Ti milosti o Najmilostiviji od milostivih.
+Hadis Poslanika Alejhisselam:Kada (ummet) prekrši ugovor, Allah Dzelle Sanuhu će učiniti da njima zagospodare njihovi neprijatelji.</string>
+    <string name="day3">Allahu moj, opskrbi me u ovome danu razumom i budnošću, a udalji me od gluposti i ispraznosti, i učini mi udjela u svim dobrima koja spustaš na robove Svoje, tako Ti Tvoje velikodušnosti, o najdarežljiviji od darežljivih.
+Hadis Poslanika Alejhisselam: Dovoljna je mahana čovjeku da vidi nedostatak kod drugih a da ga kod sebe ne vidi, i da druge kori zbog nečega od čega sam nije u stanju da se prođe, i da zamara onoga s kim sjedi nečim što ga ne interesuje</string>
+
+
+
+    <string name="day1_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
+    <string name="day2_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
+    <string name="day3_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
+
+
 </resources>
