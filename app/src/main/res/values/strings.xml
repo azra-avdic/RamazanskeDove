@@ -2,23 +2,132 @@
     <string name="app_name">RamazanskeDove</string>
 
 
-    <string name="day1_title">DAY 1</string>
-    <string name="day2_title">DAY 2</string>
-    <string name="day3_title">DAY 3</string>
+    <string name="day1_title">1. Ramazan </string>
+    <string name="day2_title">2. Ramazan </string>
+    <string name="day3_title">3. Ramazan </string>
+    <string name="day4_title">4. Ramazan </string>
+    <string name="day5_title">5. Ramazan </string>
+    <string name="day6_title">6. Ramazan </string>
+    <string name="day7_title">7. Ramazan </string>
+    <string name="day8_title">8. Ramazan </string>
+    <string name="day9_title">9. Ramazan </string>
+    <string name="day10_title">10. Ramazan </string>
+    <string name="day11_title">11. Ramazan </string>
+    <string name="day12_title">12. Ramazan </string>
+    <string name="day13_title">13. Ramazan </string>
+    <string name="day14_title">14. Ramazan </string>
+    <string name="day15_title">15. Ramazan </string>
+    <string name="day16_title">16. Ramazan </string>
+    <string name="day17_title">17. Ramazan </string>
+    <string name="day18_title">18. Ramazan </string>
+    <string name="day19_title">19. Ramazan </string>
+    <string name="day20_title">20. Ramazan </string>
+    <string name="day21_title">21. Ramazan </string>
+    <string name="day22_title">22. Ramazan </string>
+    <string name="day23_title">23. Ramazan </string>
+    <string name="day24_title">24. Ramazan </string>
+    <string name="day25_title">25. Ramazan </string>
+    <string name="day26_title">26. Ramazan </string>
+    <string name="day27_title">27. Ramazan </string>
+    <string name="day28_title">28. Ramazan </string>
+    <string name="day29_title">29. Ramazan </string>
+    <string name="day30_title">30. Ramazan </string>
+
+    <string name="daily_doa1_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa5_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa6_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa7_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa8_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa9_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa10_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa11_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa12_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa13_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa14_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa15_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa16_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa17_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa18_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa19_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa20_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa21_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa22_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa23_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa24_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa25_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa26_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa27_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa28_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa29_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+    <string name="daily_doa30_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
+
+    <string name="daily_doa1">Allahu moj, učini u ovom danu moj post, postom pravih postača, namaz, namazom pravih klanjača, i probudi me u iz sna nehajnih i oprosti mi krivice u njemu o Gospodaru svijetova, i pomiluj me u ovom danu o Pomilovatelju griješnih.</string>
+    <string name="daily_doa2">Allahu moj, učini me ovog dana bliskim zadovoljstvu Tvome, udalji me u njemu od srdžbe i osvete Svoje, pomozi me u učenju ajeta Tvojih, tako Ti milosti o Najmilostiviji od milostivih.</string>
+    <string name="daily_doa3">Allahu moj, opskrbi me u ovome danu razumom i budnošću, a udalji me od gluposti i ispraznosti, i učini mi udjela u svim dobrima koja spustaš na robove Svoje, tako Ti Tvoje velikodušnosti, o najdarežljiviji od darežljivih.</string>
+    <string name="daily_doa4">Allahu moj, ojačaj me u ovome danu u izvršenju Tvojih naredbi i opskrbi me slašću Tvojeg spominjanja i uspjehom zahvale na Tvoja davanja tako Ti plemenitosti Tvoje i tako Ti Tvojeg čuvanja, čuvaj me u njemu o Ti koji najbolje vidiš od nadgledača.</string>
+    <string name="daily_doa5">Allahu moj, učini me u ovom danu od onih koji oprost traže, i učini me od dobrih i poslušnih robova Svojih, i učini me od Tvojih evlija bliskih tako Ti Tvoje blagosti o Najmilostiviji od milostivih.</string>
+    <string name="daily_doa6">Allahu moj, ne ponizi me u njemu griješenjem prema Tebi, i ne udari me bičem osvete, udalji povode srdžbe Tvoje, tako Ti dobrote o Ti koji si krajnja želja onih koji žele.</string>
+    <string name="daily_doa7">Allahu moj, pomozi me u ovom danu u postu i ibadetu, i udalji me od poniženja i grijeha, i opskrbi me u njemu neprestanim spominjanjem Tvojim, tako Ti Tvoje pomoći o Uputitelju zalutalih.</string>
+    <string name="daily_doa8">Allahu moj, pomozi me u ovom danu u samilosti prema siročadima, i na dijeljenje hrane sirotima, i na nazivanje selama Tvojim robovima, i na druženje sa plemenitim, o utočištu onih koji ga žele.</string>
+    <string name="daily_doa9">Allahu moj, učini mi udio u Tvojoj opsežnoj milosti, i uputi me u ovom danu Svojim dokazima jasnim, i održi me na putu na kojem je Tvoje zadovoljstvo, tako Ti Tvoje naklonosti o željo onih koji čeznu.</string>
+    <string name="daily_doa10">Allahu moj, učini me u ovom danu od onih koji se uzdaju u Tebe, i od pobjednika kod Tebe, i od Tebi bliskih, tako Ti Tvoje dobrote, o Svrho tražitelja.</string>
+    <string name="daily_doa11">Allahu moj, omili mi u ovome danu dobročinstvo, a udalji me od grijeha i nepravde, i zabrani spram mene Svoju srdžbu i vatru uz pomoć Tvoju, o Pomagaču tražiteljima pomoći.</string>
+    <string name="daily_doa12">Allahu moj, ukrasi me u ovom danu odjećom čednosti, i ogrni me odjećom zadovoljstva i dovoljnosti, učini me u njemu pravednim i nepristrasnim, učini me sigurnim od onoga od čega imam strah, tako Ti Tvoje nepogrješivosti o čuvatelju uplašenih.</string>
+    <string name="daily_doa13">Allahu moj, očisti me u ovome danu od niskosti, i učini me strpljivim u njemu na Tvoje odredbe i pospješi me na Bogobojaznost i druženje sa dobrima, tako Ti pomoći Tvoje, o Svjetlosti očiju nemoćnika.</string>
+    <string name="daily_doa14">Allahu moj, ne kazni moje posrtaje u ovom danu, i pomozi mi da činim manje grijeha i grešaka, i ne izloži me nevoljama i štetama, tako Ti Tvoje veličanstvenosti, o Potpomagatelju predanika.</string>
+    <string name="daily_doa15">Allahu moj, pomozi me u ovom danu na pokoravanje poniznih, i proširi mi grudi za pokajanje skrušenih, o Spokojstvu uplašenih.</string>
+    <string name="daily_doa16">Allahu moj, učini me prijateljem dobrih, a odvoji me od loših, i odredi me Svojom milošću u vječnu kuću, tako Ti Tvoje Božanstvenosti, o Gospodaru svijetova.</string>
+    <string name="daily_doa17">Allahu moj, uputi me u ovom danu na činjenje dobra, i ispuni mi u njemu potrebe i želje, o Ti Koji nemaš potrebu za molbom i objašnjenjima, o Znalče onoga što je u grudima stanovnika svijetova, i blagoslovi Muhammeda i njegovu Časnu porodicu.</string>
+    <string name="daily_doa18">Allahu moj, učini me svjesnim blagodati prilikom zore, i osvjetli srce moje svjetlošću mjeseca Ramazana, o Osvjetlitelju srca onih koji su Te spoznali.</string>
+    <string name="daily_doa19">Allahu moj, udjeli mi ovoga dana puno njegovih blagodati, i olakšaj mi put sticanja dobara, i ne liši me u njemu primanja njegovih dobara, o upućivaču prema istini jasnoj.</string>
+    <string name="daily_doa20">Allahu moj, otvori mi u ovome danu Džennetska vrata, a zaključaj u njemu vrata Džehennema, i pomozi me u njemu u učenju Kur\’ana, o Ti Koji spustaš spokoj na srca vjernika.</string>
+    <string name="daily_doa21">Allahu moj, uputi me u ovom danu ka zadovoljstvu Svojem, ne daj šejtanu puta ka meni, a učini Džennet stjecištem mojim, o Namiritelju potreba onih koji traže.</string>
+    <string name="daily_doa22">Allahu moj, otvori mi u ovom danu vrata Tvoga izobilja, i spusti na mene Tvoje blagodati, i pomozi me u stizanju do Tvojeg zadovoljstva, i naseli me usred Dženneta, o Odazivatelju na poziv uznemirenih.</string>
+    <string name="daily_doa23">Allahu moj, očisti me u ovom danu od grijeha i nedostataka, a srce mi oplemeni istinskom Bogobojaznošću, o Ti Koji prelaziš preko propusta griješničkih.</string>
+    <string name="daily_doa24">Allahu moj, tražim u ovom danu ono što će Te zadovoljiti, a utječem Ti se od onoga što će Te uvrijediti, i podari mi uspjeh da Ti se pokoravam, i da ne budem jogunast, o Udjelitelju onima koji traže.</string>
+    <string name="daily_doa25">Allahu moj, učini me ovoga dana ljubiteljem prijatelja a dušmaninom neprijatelja Tvojih, i učini me sljedbenikom staze Dočetku poslanika Tvojih, o Čuvaru poslaničkih srca.</string>
+    <string name="daily_doa26">Allahu moj, učini mi ovoga dana trud hvale vrijednim, grijehe oproštenim, djela prihvaćenim, nedostatke pokrivenim, o Ti koji najbolje čuješ od onih koji čuju.</string>
+    <string name="daily_doa27">Allahu moj, opskrbi me danas vrijednošću Noći Kadra, i preobrati moje teškoće u lahkoće, primi moju ispriku i oprosti mi grijehe, o Milostivi prema robovima dobrim.</string>
+    <string name="daily_doa28">Allahu moj, učini me uspješnim u vršenju dobrovoljnih poslova, i počasti me ispunjenjem mojih traženja, i učini me danas od Tebi bliskih, o Ti kojeg navaljivanje upornih ne čini zaokupljenim.</string>
+    <string name="daily_doa29">Allahu moj, obaspi me ovoga dana milošću, opskrbi me uspjehom i negriješenjem i čistoćom srca od tmina zabluda i klevetanja, o Milostivi za robove Svoje, vjernike.</string>
+    <string name="daily_doa30">Allahu moj, nagradi danas moj post Tvojim primanjem, i zadovoljstvom Tebe i Poslanika, učvršćenih ogranaka načelima njegovim, tako Ti Muhammeda, (ص), i njegove čiste Čeljadi, i hvala Allahu Gospodaru svijetova.</string>
 
 
 
-    <string name="day1">Allahu moj, učini u ovom danu moj post, postom pravih postača, namaz, namazom pravih klanjača, i probudi me u iz sna nehajnih i oprosti mi krivice u njemu o Gospodaru svijetova, i pomiluj me u ovom danu o Pomilovatelju griješnih.</string>
-    <string name="day2">Allahu moj, učini me ovog dana bliskim zadovoljstvu Tvome, udalji me u njemu od srdžbe i osvete Svoje, pomozi me u učenju ajeta Tvojih, tako Ti milosti o Najmilostiviji od milostivih.
-Hadis Poslanika Alejhisselam:Kada (ummet) prekrši ugovor, Allah Dzelle Sanuhu će učiniti da njima zagospodare njihovi neprijatelji.</string>
-    <string name="day3">Allahu moj, opskrbi me u ovome danu razumom i budnošću, a udalji me od gluposti i ispraznosti, i učini mi udjela u svim dobrima koja spustaš na robove Svoje, tako Ti Tvoje velikodušnosti, o najdarežljiviji od darežljivih.
-Hadis Poslanika Alejhisselam: Dovoljna je mahana čovjeku da vidi nedostatak kod drugih a da ga kod sebe ne vidi, i da druge kori zbog nečega od čega sam nije u stanju da se prođe, i da zamara onoga s kim sjedi nečim što ga ne interesuje</string>
-
-
-
-    <string name="day1_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
-    <string name="day2_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
-    <string name="day3_arabic">Elĥamdulillāhi rabbil-‘ālemīn. Vessalātu vesselāmu ‘alā resūlillāh...</string>
-
+    <string name="daily_hadis1">Rekao je Poslanik, Alejhisselam: Allah Uzvišeni je rekao: Sve što čovjek uradi to je njegovo, osim posta, on je Moj i Ja Sam njegova nagrada, i post je štit vjernikov na Sudnjem danu.</string>
+    <string name="daily_hadis2">Kada (ummet) prekrši ugovor, Allah Dzelle Sanuhu će učiniti da njima zagospodare njihovi neprijatelji.</string>
+    <string name="daily_hadis3">Dovoljna je mahana čovjeku da vidi nedostatak kod drugih a da ga kod sebe ne vidi, i da druge kori zbog nečega od čega sam nije u stanju da se prođe, i da zamara onoga s kim sjedi nečim što ga ne interesuje.</string>
+    <string name="daily_hadis4">Ko zna za grijeh svoga brata pa ga sakrije, Allah, Dzelle Sanuhu, će na Sudnjem danu sakriti njegove grijehe. </string>
+    <string name="daily_hadis5">Ne tragajte za mahanama vjernika, zaista ko traži nedostatke vjernicima Allah Dzelle Sanuhu traži njegove nedostatke, a čije mahane bude Allah Dzelle Sanuhu tražio obrukat će ga pa makar se nalazio i u svojoj kući.</string>
+    <string name="daily_hadis6">Ko grdi svoga brata zbog grijeha od kojeg se pokajao, neće umrijeti a da ne počini isti taj grijeh.</string>
+    <string name="daily_hadis7">Ukoliko te brat vjernik grdi zbog onoga što zna o tebi, ne grdi ga u vezi onoga što znaš o njemu, tako ćeš ti imati nagradu a on grijeh.</string>
+    <string name="daily_hadis8">Ko prevari brata muslimana uskratit će mu Allah, Dzelle Sanuhu, blagodati opskrbe, upropastit će mu život i prepustit će ga samome sebi.</string>
+    <string name="daily_hadis9">Da li da vas obavijestim o najsnažnijem među vama? To je onaj koji vlada samim sobom prilikom srdžbe.</string>
+    <string name="daily_hadis10"> Čovjek je vjere svoga prijatelja, zato neka svako od vas pazi ko će mu biti prijatelj.</string>
+    <string name="daily_hadis11">Kada je Poslaniku, Alejhisselam, Uzvišeni rekao “Tvoj će ummet ubrzo upasti u smutnju.” Upitaše ga: Šta je izlaz iz nje? On reče: Časna knjiga Božija, jer laž joj ne prilazi ni sprijeda ni straga, spuštena je od Mudrog, Hvaljenog. Ko god traži znanje mimo Kur\’ana Allah će ga odvesti u zabludu.</string>
+    <string name="daily_hadis12">Ti učiš Kur\’an do trenutka kada te sprječava (od grijeha), kada te ne spriječi, dakle nisi ga ni učio.</string>
+    <string name="daily_hadis13">Rekao je Allah, s.v.t.: Ko nije zadovoljan Mojim određenjem i ko ne vjeruje u Moju sudbinu, pa neka traži drugog boga.</string>
+    <string name="daily_hadis14">Najveća mudrost, nakon vjerovanja jeste naklonost prema ljudima i činjenje dobročinstva i dobrim i lošim ljudima.</string>
+    <string name="daily_hadis15">Ko ne prihvati izvinjenje bez obzira da li je ono opravdano ili ne, neće biti kod mene pored izvora Havda na Sudnjem danu. Čuvaj se onoga zbog čega se moraš izvinjavati, jer u tome je skriveni širk.</string>
+    <string name="daily_hadis16">Čini dobro i onome koji ga zaslužuje i onome koji ga ne zaslužuje, ukoliko ga učiniš onome ko ga ne zaslužuje, znaj da ga ti zaslužuješ.</string>
+    <string name="daily_hadis17">Za tebe nema dobra u druženju sa čovjekom koji ti ne želi ono što želi sebi. Najbolji je prijatelj onaj koji se malo protivi i puno se slaže.</string>
+    <string name="daily_hadis18">Ne potcjenjuj nijedno dobročinstvo pa makar to bilo nasmijano lice prilikom susreta s bratom.</string>
+    <string name="daily_hadis19">Ušao je čovjek u Džennet zahvaljujući tome što je sklonio trnovitu granu sa puta kojim prolaze vjernici.</string>
+    <string name="daily_hadis20">Mrzak je Allahu Dzelle Sanuhu slabi vjernik koji nema vjere. Upitaše ga: “Koji vjernik nema vjere?” Reče: Onaj koji ne sprječava činjenje loših djela.</string>
+    <string name="daily_hadis21">Vjernik koji se druži s ljudima i podnosi njihova uznemiravanja bolji je od vjernika koji se ne druži s ljudima i ne podnosi njihova uznemiravanja.</string>
+    <string name="daily_hadis22">Uljepšaj ponašanje s onim s kojim se družiš bit ćeš musliman.</string>
+    <string name="daily_hadis23">Čovjek koji je pristrasan ili su za njim pristrasni odvezao je uzicu vjerovanja sa svoga vrata.</string>
+    <string name="daily_hadis24">Ukazivanje prijateljstva i naklonosti prema ljudima, nakon vjere u Allaha Dzelle Sanuhu je još jedan pokazatelj razuma. </string>
+    <string name="daily_hadis25">Nije od nas ko poziva fanatizmu, nije od nas ko ratuje zbog fanatizma i nije od nas ko umre u fanatizmu.</string>
+    <string name="daily_hadis26">Želite li da vas obavjestim o nečemu što je po stepenu iznad posta, namaz i zekata? Izmirivanje među ljudima koji su u neslozi. Zaista razdor među ljudima upropaštava.</string>
+    <string name="daily_hadis27">Svako ko voli da ga ljudi dvore dok on sjedi, mjesto mu je u Džehennemu.</string>
+    <string name="daily_hadis28">Najomiljenije djelo kod Uzvišenog Allaha Dzelle Sanuhu jeste da obraduješ vjernika, da mu utoliš glad ili odagnaš od njega žalost.</string>
+    <string name="daily_hadis29">Kod koga se ne nađu tri svojstva djela mu nisu potpuna: pobožnost koja ga čuva od neposlušnosti Allahu Dzelle Sanuhu, tolerantnost prema ljudima i blagost kojom odbija neznanje neznalice (tj. njegovo loše postupanje).</string>
+    <string name="daily_hadis30">Uzvišeni Allah Dzelle Sanuhu voli da kada nešto radite da u tome budete temeljiti.</string>
+    <string name="toolbar_title_">Ramazanske dove</string>
 
 </resources>
+
