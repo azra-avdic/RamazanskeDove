@@ -2,10 +2,14 @@ package com.example.azra.ramazanskedove;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -14,7 +18,7 @@ import android.widget.TextView;
 public class CustomPagerAdapter extends PagerAdapter {
 
     private Context mContext;
-
+    private ViewGroup hiddenPanel;
     public CustomPagerAdapter(Context context) {
         mContext = context;
     }
@@ -23,12 +27,16 @@ public class CustomPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup collection, final int position) {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.custompager_item, collection, false);
+        final ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.custompager_item, collection, false);
 
         TextView tvTitle = (TextView) layout.findViewById(R.id.tvTitle);
         TextView tvDoaAbrab = (TextView) layout.findViewById(R.id.tvDoaArab);
         TextView tvDoa = (TextView) layout.findViewById(R.id.tvDoa);
-        TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadis);
+        final TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadisContent);
+        final TextView tvHadisTitle = (TextView) layout.findViewById(R.id.tvHadisTitle);
+
+        final ImageView ivUp = (ImageView) layout.findViewById(R.id.ivUp);
+        final ImageView ivDown = (ImageView) layout.findViewById(R.id.ivDown);
 
         tvTitle.setText("Dova za " + getPageTitle(position));
         tvDoaAbrab.setText(getDoaArab(position));
@@ -36,8 +44,54 @@ public class CustomPagerAdapter extends PagerAdapter {
         tvHadis.setText(getHadis(position));
 
         collection.addView(layout);
+        hiddenPanel = (ViewGroup)layout.findViewById(R.id.llHadis);
+        //hiddenPanel.setVisibility(View.GONE);
+
+        tvHadisTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(tvHadis.getVisibility() == View.VISIBLE){
+                    //Animation bottomDown = AnimationUtils.loadAnimation(mContext, R.anim.bottom_down);
+                    //tvHadis.startAnimation(bottomDown);
+                    tvHadis.setVisibility(View.GONE);
+                    tvHadisTitle.setText("Prikazi Hadis");
+                    ivUp.setVisibility(View.VISIBLE);
+                    ivDown.setVisibility(View.GONE);
+                }else{
+                    //Animation bottomUp = AnimationUtils.loadAnimation(mContext, R.anim.bottom_up);
+                    //tvHadis.startAnimation(bottomUp);
+                    tvHadis.setVisibility(View.VISIBLE);
+                    tvHadisTitle.setText("Sakrij Hadis");
+                    ivUp.setVisibility(View.GONE);
+                    ivDown.setVisibility(View.VISIBLE);
+                }
+
+               // hiddenPanel.setVisibility(View.VISIBLE);
+              //  Log.d("TAG", "click");
+               // slideUp();
+
+            }
+        });
+
         return layout;
     }
+
+
+    public void slideUp() {
+        // Show the panel
+       // Animation bottomUp = AnimationUtils.loadAnimation(this.mContext, R.anim.bottom_up);
+       // hiddenPanel.startAnimation(bottomUp);
+        hiddenPanel.setVisibility(View.VISIBLE);
+    }
+    public void slideDown() {
+        // Hide the Panel
+        Animation bottomDown = AnimationUtils.loadAnimation(this.mContext, R.anim.bottom_down);
+        hiddenPanel.startAnimation(bottomDown);
+        hiddenPanel.setVisibility(View.GONE);
+    }
+
+
 
     @Override
     public void destroyItem(ViewGroup collection, int position, Object view) {
