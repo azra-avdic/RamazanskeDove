@@ -30,7 +30,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         TextView tvDoa = (TextView) layout.findViewById(R.id.tvDoa);
         TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadis);
 
-        tvTitle.setText(getPageTitle(position));
+        tvTitle.setText("Dova za " + getPageTitle(position));
         tvDoaAbrab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
