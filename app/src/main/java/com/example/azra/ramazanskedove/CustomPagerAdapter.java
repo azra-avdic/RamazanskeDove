@@ -52,46 +52,21 @@ public class CustomPagerAdapter extends PagerAdapter {
             public void onClick(View v) {
 
                 if(tvHadis.getVisibility() == View.VISIBLE){
-                    //Animation bottomDown = AnimationUtils.loadAnimation(mContext, R.anim.bottom_down);
-                    //tvHadis.startAnimation(bottomDown);
                     tvHadis.setVisibility(View.GONE);
                     tvHadisTitle.setText("Prikazi Hadis");
                     ivUp.setVisibility(View.VISIBLE);
                     ivDown.setVisibility(View.GONE);
                 }else{
-                    //Animation bottomUp = AnimationUtils.loadAnimation(mContext, R.anim.bottom_up);
-                    //tvHadis.startAnimation(bottomUp);
                     tvHadis.setVisibility(View.VISIBLE);
                     tvHadisTitle.setText("Sakrij Hadis");
                     ivUp.setVisibility(View.GONE);
                     ivDown.setVisibility(View.VISIBLE);
                 }
-
-               // hiddenPanel.setVisibility(View.VISIBLE);
-              //  Log.d("TAG", "click");
-               // slideUp();
-
             }
         });
 
         return layout;
     }
-
-
-    public void slideUp() {
-        // Show the panel
-       // Animation bottomUp = AnimationUtils.loadAnimation(this.mContext, R.anim.bottom_up);
-       // hiddenPanel.startAnimation(bottomUp);
-        hiddenPanel.setVisibility(View.VISIBLE);
-    }
-    public void slideDown() {
-        // Hide the Panel
-        Animation bottomDown = AnimationUtils.loadAnimation(this.mContext, R.anim.bottom_down);
-        hiddenPanel.startAnimation(bottomDown);
-        hiddenPanel.setVisibility(View.GONE);
-    }
-
-
 
     @Override
     public void destroyItem(ViewGroup collection, int position, Object view) {
@@ -169,7 +144,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         private int mHadisResId;
 
 
-    CustomPagerEnum(int titleResId, int doaArabResId, int doaResId, int hadisResId) {
+        CustomPagerEnum(int titleResId, int doaArabResId, int doaResId, int hadisResId) {
             mTitleResId = titleResId;
             mDoaArabResId = doaArabResId;
             mDoaResId = doaResId;

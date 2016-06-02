@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Azra on 1.6.2016.
  */
 public class Utils {
-     /**
+    /**
      * @param stringId - string id
      * @return string from resources
      */
@@ -73,8 +73,8 @@ public class Utils {
 
         List<Date> dates = new ArrayList<Date>();
 
-         //String str_date ="06/06/2016";
-         //String end_date ="05/07/2016";
+        //String str_date ="06/06/2016";
+        //String end_date ="05/07/2016";
 
         String str_date ="06/05/2016";
         String end_date ="05/06/2016";

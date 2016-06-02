@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/llHadisDrawer"
-    android:background="@color/green_darkv2"
+    android:background="@color/dark_green_selected"
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     >
