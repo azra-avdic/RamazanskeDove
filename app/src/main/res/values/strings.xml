@@ -2,13 +2,14 @@
     <string name="app_name">RamazanskeDove</string>
     <string-array name="navigation_drawer_items_array">
         <item>Ramazanske dove</item>
-        <item>About this app</item>
-        <item>Donate</item>
+        <item>Sehur dova</item>
+        <item>Iftar dova</item>
+        <item>O aplikaciji</item>
+        <item>Kontakt</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-
 
     <string name="day1_title">1. Ramazan </string>
     <string name="day2_title">2. Ramazan </string>
@@ -135,8 +136,17 @@
     <string name="daily_hadis28">Najomiljenije djelo kod Uzvišenog Allaha Dzelle Sanuhu jeste da obraduješ vjernika, da mu utoliš glad ili odagnaš od njega žalost.</string>
     <string name="daily_hadis29">Kod koga se ne nađu tri svojstva djela mu nisu potpuna: pobožnost koja ga čuva od neposlušnosti Allahu Dzelle Sanuhu, tolerantnost prema ljudima i blagost kojom odbija neznanje neznalice (tj. njegovo loše postupanje).</string>
     <string name="daily_hadis30">Uzvišeni Allah Dzelle Sanuhu voli da kada nešto radite da u tome budete temeljiti.</string>
+
+
     <string name="toolbar_title_">Ramazanske dove</string>
     <string name="test_title">1. Ramazan</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
+
+
+    <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="iftar_doa">Iftarska dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="about_app">Ova aplikacija se koristi tako i tako. swipe. zasto dove </string>
+    <string name="contact"> telefon mail </string>
 
 </resources>

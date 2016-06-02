@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CharSequence mTitle; // current title
     private  ViewPager viewPager;
+    private  TextView tvSinglePageContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +58,14 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Ramazanske dove");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "About this app");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Donate");
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Sehur dova");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Iftar dova");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_copy, "O aplikaciji");
+        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Kontakt");
+
 
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
@@ -97,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
+        tvSinglePageContent = (TextView) findViewById(R.id.tvSinglePageContent);
 
 
     }
@@ -137,14 +143,33 @@ public class MainActivity extends AppCompatActivity {
         switch (position) {
             case 0:
                 //todo viewPager visible and on correct position
+                viewPager.setVisibility(View.VISIBLE);
+                tvSinglePageContent.setVisibility(View.GONE);
                 break;
             case 1:
-                //todo vp gone && some text
+                //todo vp gone && text for Sehur
+                viewPager.setVisibility(View.GONE);
+                tvSinglePageContent.setText(R.string.iftar_doa);
+                tvSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                //todo vp gone && some text
+                //todo vp gone && Iftar dova
+                viewPager.setVisibility(View.GONE);
+                tvSinglePageContent.setText(R.string.iftar_doa);
+                tvSinglePageContent.setVisibility(View.VISIBLE);
                 break;
-
+            case 3:
+                //todo vp gone && text about app
+                viewPager.setVisibility(View.GONE);
+                tvSinglePageContent.setText(R.string.about_app);
+                tvSinglePageContent.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                //todo vp gone && some text for contact
+                viewPager.setVisibility(View.GONE);
+                tvSinglePageContent.setText(R.string.contact);
+                tvSinglePageContent.setVisibility(View.VISIBLE);
+                break;
             default:
                 break;
         }
