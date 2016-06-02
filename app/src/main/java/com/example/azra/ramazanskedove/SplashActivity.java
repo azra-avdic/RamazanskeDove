@@ -2,7 +2,10 @@ package com.example.azra.ramazanskedove;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
+import android.widget.TextView;
 
 /**
  * Created by Azra on 30.5.2016.
@@ -13,10 +16,18 @@ public class SplashActivity  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
+        TextView tvAppName = (TextView) findViewById(R.id.tvAppName);
+
+       tvAppName.setText(Html.fromHtml(getString(R.string.app_name_tm)));
+
+        Typeface custom_font = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaExt-Normal.ttf");
+        tvAppName.setTypeface(custom_font);
+
+
         Thread timerThread = new Thread(){
             public void run(){
                 try{
-                    sleep(2000);
+                    sleep(8000);
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{

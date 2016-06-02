@@ -1,6 +1,7 @@
 package com.example.azra.ramazanskedove;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +43,10 @@ public class CustomPagerAdapter extends PagerAdapter {
         tvDoaAbrab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
+
+        Typeface custom_font = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica.ttf");
+        tvTitle.setTypeface(custom_font);
+
 
         collection.addView(layout);
         hiddenPanel = (ViewGroup)layout.findViewById(R.id.llHadis);
