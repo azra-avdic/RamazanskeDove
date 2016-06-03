@@ -3,15 +3,21 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="main_activity_margin">10dp</dimen>
+    <dimen name="main_activity_margin">8dp</dimen>
     <dimen name="today_title_margin_top_bottom">5dp</dimen>
+    <dimen name="calendar_image_size">40dp</dimen>
     <dimen name="calendar_image_padding">5dp</dimen>
     <dimen name="doa_text_padding">12dp</dimen>
     <dimen name="up_down_image_height">15dp</dimen>
 
     <dimen name="hadis_text_height">150dp</dimen>
 
-    <dimen name="today_title_text_size">20sp</dimen>
-    <dimen name="doa_title_text_size">22sp</dimen>
+    <dimen name="today_title_text_size">18sp</dimen>
+    <dimen name="doa_title_text_size">20sp</dimen>
+
+    <dimen name="drawer_item_size">18sp</dimen>
+
+    <dimen name="splash_text_size">18sp</dimen>
+
 
 </resources>
