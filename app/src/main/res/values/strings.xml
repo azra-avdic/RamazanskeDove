@@ -42,7 +42,12 @@
     <string name="day29_title">29. Ramazan </string>
     <string name="day30_title">30. Ramazan </string>
 
+<<<<<<< HEAD
     <string name="daily_doa1_arabic"> jj</string>
+=======
+
+    <string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
+>>>>>>> e33c26aede05670108396ccc7286a95e0c02ba8f
     <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
@@ -104,8 +109,6 @@
     <string name="daily_doa29">Allahu moj, obaspi me ovoga dana milošću, opskrbi me uspjehom i negriješenjem i čistoćom srca od tmina zabluda i klevetanja, o Ti koji si Samilostan prema Svojim robovima!</string>
     <string name="daily_doa30">Allahu moj, nagradi moj post Tvojim primanjem, i zadovoljstvom Tebe i Poslanika, učvršćenih ogranaka po čvrstim osnovama, tako Ti prava našeg prvaka Muhammeda i njegove čiste porodice, i sva hvala pripada samo Allahu Gospodaru svjetova!</string>
 
-
-
     <string name="daily_hadis1">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: \“Ko posti ramazan, vjerujući i nadajući se nagradi, biće mu oprošteni grijesi, koje je prethodno pocinio!\” (Buharija i Muslim)</string>
     <string name="daily_hadis2">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s: \“Kada nastupi ramazan, otvore se džennetska, zatvore džehennemska vrata a šejtani se povežu!\” (Buharija i Muslim)</string>
     <string name="daily_hadis3">Ebu Se\'id el-Hudri, r.a, prenosi da je Allahov Poslanik, s.a.v.s, rekao: \“Allah će sedamdeset godina udaljiti Vatru od osobe koja posti jedan dan na Allahovom putu!\” (Buharija i Muslim. Sličnu verziju bilježe i Tirmizi, Taberani i Ebu Hazm el-Hanbeli)</string>
@@ -137,9 +140,7 @@
     <string name="daily_hadis29">Allahov Poslanik, s.a.v.s, da je rekao: \"Dova brata za drugog brata koji je odsutan se ne odbija.\" (Muslim)</string>
     <string name="daily_hadis30">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko hoće da ima lijep spomen iza sebe i da mu se poveća opkrba, neka čuva rodbinske veze.\" (Buharija i Muslim) </string>
 
-
     <string name="app_name_splash">Ramazanske dove <sup><small>&#174;</small></sup></string>
-
     <string name="app_name_tm"> Ramazanske dove &#8482;</string>
 
 
@@ -148,10 +149,13 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
 
-
     <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="iftar_doa">Iftarska dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="about_app">Ova aplikacija se koristi tako i tako. swipe. zasto dove </string>
     <string name="contact"> telefon mail </string>
+    <string name="splach_text">Sve dove su preuzete iz hadisi iz...</string>
+    <string name="showHadis">Prikaži Hadis</string>
+    <string name="hideHadis">Sakrij Hadis</string>
 
 </resources>
+

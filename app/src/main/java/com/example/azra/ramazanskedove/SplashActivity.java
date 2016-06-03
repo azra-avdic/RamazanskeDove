@@ -15,19 +15,18 @@ public class SplashActivity  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+        Typeface fontHelveticaExtNormal = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaExt-Normal.ttf");
+
 
         TextView tvAppName = (TextView) findViewById(R.id.tvAppName);
-
-       tvAppName.setText(Html.fromHtml(getString(R.string.app_name_tm)));
-
-        Typeface custom_font = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaExt-Normal.ttf");
-        tvAppName.setTypeface(custom_font);
+        tvAppName.setText(Html.fromHtml(getString(R.string.app_name_tm)));
+        tvAppName.setTypeface(fontHelveticaExtNormal);
 
 
         Thread timerThread = new Thread(){
             public void run(){
                 try{
-                    sleep(8000);
+                    sleep(2000);
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{

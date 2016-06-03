@@ -7,10 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -19,13 +18,16 @@ import android.widget.TextView;
 public class CustomPagerAdapter extends PagerAdapter {
 
     private Context mContext;
-    private ViewGroup hiddenPanel;
     public CustomPagerAdapter(Context context) {
         mContext = context;
     }
 
     @Override
     public Object instantiateItem(ViewGroup collection, final int position) {
+
+        Typeface fontHelvetica = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica.ttf");
+        Typeface fontHelveticaObl = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica-Oblique.ttf");
+
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
         LayoutInflater inflater = LayoutInflater.from(mContext);
         final ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.custompager_item, collection, false);
@@ -33,45 +35,56 @@ public class CustomPagerAdapter extends PagerAdapter {
         TextView tvTitle = (TextView) layout.findViewById(R.id.tvTitle);
         TextView tvDoaAbrab = (TextView) layout.findViewById(R.id.tvDoaArab);
         TextView tvDoa = (TextView) layout.findViewById(R.id.tvDoa);
-        final TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadisContent);
-        final TextView tvHadisTitle = (TextView) layout.findViewById(R.id.tvHadisTitle);
 
+        final TextView tvHadisTitle = (TextView) layout.findViewById(R.id.tvHadisTitle);
         final ImageView ivUp = (ImageView) layout.findViewById(R.id.ivUp);
-        final ImageView ivDown = (ImageView) layout.findViewById(R.id.ivDown);
+        final ImageView  ivDown = (ImageView) layout.findViewById(R.id.ivDown);
+        final ScrollView svHadis = (ScrollView) layout.findViewById(R.id.svHadis);
+        final TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadisContent);
+
 
         tvTitle.setText("Dova za " + getPageTitle(position));
         tvDoaAbrab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
 
-        Typeface custom_font = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica.ttf");
-        tvTitle.setTypeface(custom_font);
+
+        tvTitle.setTypeface(fontHelvetica);
+        tvDoaAbrab.setTypeface(fontHelvetica);
+        tvDoa.setTypeface(fontHelvetica);
+        tvHadis.setTypeface(fontHelvetica);
+        tvHadisTitle.setTypeface(fontHelveticaObl);
 
 
         collection.addView(layout);
-        hiddenPanel = (ViewGroup)layout.findViewById(R.id.llHadis);
-        //hiddenPanel.setVisibility(View.GONE);
 
-        tvHadisTitle.setOnClickListener(new View.OnClickListener() {
+
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(tvHadis.getVisibility() == View.VISIBLE){
-                    tvHadis.setVisibility(View.GONE);
-                    tvHadisTitle.setText("Prikazi Hadis");
-                    ivUp.setVisibility(View.VISIBLE);
+                Log.d("CLICK", " click");
+                if(ivDown.getVisibility() == View.VISIBLE){
+                    svHadis.setVisibility(View.GONE);
                     ivDown.setVisibility(View.GONE);
+                    tvHadisTitle.setText(R.string.showHadis);
+                    ivUp.setVisibility(View.VISIBLE);
                 }else{
-                    tvHadis.setVisibility(View.VISIBLE);
-                    tvHadisTitle.setText("Sakrij Hadis");
-                    ivUp.setVisibility(View.GONE);
+                    svHadis.setVisibility(View.VISIBLE);
                     ivDown.setVisibility(View.VISIBLE);
+                    tvHadisTitle.setText(R.string.hideHadis);
+                    ivUp.setVisibility(View.GONE);
                 }
             }
-        });
+        };
+
+        tvHadisTitle.setOnClickListener(listener);
+        ivUp.setOnClickListener(listener);
+        ivDown.setOnClickListener(listener);
 
         return layout;
     }
+
+
 
     @Override
     public void destroyItem(ViewGroup collection, int position, Object view) {
