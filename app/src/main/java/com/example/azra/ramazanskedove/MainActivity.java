@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-        
+
         setTitle(mNavigationDrawerItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
