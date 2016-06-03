@@ -45,6 +45,7 @@
                 android:layout_marginBottom="@dimen/today_title_margin_top_bottom"
                 android:padding="@dimen/doa_text_padding"
                 android:gravity="center"
+                android:visibility="gone"
                 />
 
             <TextView

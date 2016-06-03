@@ -43,13 +43,7 @@
     <string name="day30_title">30. Ramazan </string>
 
 
-    <string name="daily_doa1_arabic">
-        بِسْمِ اللّهِ الرَّحْمـَنِ الرَّحِيمِ
-‏اللَّهُمَّ اجْعَلْ صِيَامِي فِيهِ صِيَامَ الصَّائِمِينَ
-وَ قِيَامِي فِيهِ قِيَامَ الْقَائِمِينَ وَ نَبِّهْنِي فِيهِ
-عَنْ نَوْمَةِ الْغَافِلِينَ ‏وَ هَبْ لِي جُرْمِي فِيهِ
-يَا إِلَهَ الْعَالَمِينَ وَ اعْفُ عَنِّي يَا عَافِياً عَنِ الْمُجْرِمِينَ‏
-    </string>
+    <string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
     <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
@@ -99,7 +93,7 @@
     <string name="daily_doa17">Allahu moj, uputi me u ovome danu na činjenje dobra, i ispuni mi potrebe i želje, o Ti Koji nemaš potrebu za pojašnjenjima i traženjem, o Ti koji znaš ono što je u prsima ljudi, blagoslovi Muhammeda i njegovu čistu porodicu.</string>
     <string name="daily_doa18">Allahu moj, učini da u ovome danu budem svjestan blagodati njegovih praskozorja, prosvjetli mi srce zrakama svjetlosti njegovih, i učini da svi udovi moji slijede tragove njegove, tako ti svjetlosti Tvoje o Ti koji osvjetljavaš srca istinskih znalaca!</string>
     <string name="daily_doa19">Allahu, učini u ovome danu obilnim moju korist u njegovim blagodatima, i olakšaj mi put sticanja dobara, i ne liši me primanja dobrih djela, o Ti koji upućuješ prema istini jasnoj!</string>
-    <string name="daily_doa20">Allahu moj, otvori mi u ovome danu kapiju Džennetsku, a zaključaj preda mnom vrata Džehennema, i podari mi uspjeh učenja Kur'ana, o Ti Koji spustaš smiraj na srca vjernika!</string>
+    <string name="daily_doa20">Allahu moj, otvori mi u ovome danu kapiju Džennetsku, a zaključaj preda mnom vrata Džehennema, i podari mi uspjeh učenja Kur\'ana, o Ti Koji spustaš smiraj na srca vjernika!</string>
     <string name="daily_doa21">Bože moj, daj mi u ovome danu putovođu do zadovoljstva Tvoga i  ne ostavi put kojim bi šejtan ovladao mnome. Učini Džennet mojim boravištem i odmaralištem, o Ti Koji ispunjavaš potrebe onih koji traže!</string>
     <string name="daily_doa22">Bože otvori mi u ovome danu vrata dobrote Tvoje, obaspi me blagodatima Tvojim, daj mi uspjeh u činjenju onog što zavrjeđuje Tvoje zadovoljstvo, nastani me usred Dženneta Tvog, o Ti koji se odazivaš dovi nevoljnika.</string>
     <string name="daily_doa23">Bože moj, operi me u ovome danu od grijeha, očisti me od nedostataka, okušaj mi srce bogobojaznošću, o Ti Koji prihvataš izgovore griješničkih posrtaja!</string>
@@ -115,20 +109,20 @@
 
     <string name="daily_hadis1">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: “Ko posti ramazan, vjerujući i nadajući se nagradi, biće mu oprošteni grijesi, koje je prethodno pocinio!” (Buharija i Muslim)</string>
     <string name="daily_hadis2">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s: “Kada nastupi ramazan, otvore se džennetska, zatvore džehennemska vrata a šejtani se povežu!” (Buharija i Muslim)</string>
-    <string name="daily_hadis3">Ebu Se'id el-Hudri, r.a, prenosi da je Allahov Poslanik, s.a.v.s, rekao: “Allah će sedamdeset godina udaljiti Vatru od osobe koja posti jedan dan na Allahovom putu!” (Buharija i Muslim. Sličnu verziju bilježe i Tirmizi, Taberani i Ebu Hazm el-Hanbeli)</string>
+    <string name="daily_hadis3">Ebu Se\'id el-Hudri, r.a, prenosi da je Allahov Poslanik, s.a.v.s, rekao: “Allah će sedamdeset godina udaljiti Vatru od osobe koja posti jedan dan na Allahovom putu!” (Buharija i Muslim. Sličnu verziju bilježe i Tirmizi, Taberani i Ebu Hazm el-Hanbeli)</string>
     <string name="daily_hadis4">Ebu Hurejre, r.a, prenosi da je Vjerovjesnik, s.a.v.s, rekao: “Allah Uzvišeni je rekao: Svako čovjekovo djelo pripada njemu, izuzev posta! On pripada Meni i Ja posebno za njega nagrađujem!” (Buharija, Muslim, Ebu Davud, Tirmizi i Nesai)</string>
     <string name="daily_hadis5">Ebu Hurejre, r.a, od Poslanika, s.a.v.s, prenosi: “Post je štit, pa kada neko od vas posti neka ne govori bestidne riječi i neka se ne dere, a ako ga neko opsuje ili napadne, neka kaže: ja postim!” (Buharija, Muslim, Ebu Davud, Tirmizi i Nesai)</string>
     <string name="daily_hadis6">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: “Tako mi Onoga u čijoj je ruci Muhammedova duša, zadah iz usta postača kod Allaha je bolji od mirisa miska.” (Buharija, Muslim, Ebu Davud, Tirmizi i Nesai)</string>
     <string name="daily_hadis7">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: “Postač ima dvije radosti: prilikom iftara i prilikom susreta sa svojim Gospodarom!” (Buharija, Muslim, Ebu Davud, Tirmizi i Nesai)</string>
     <string name="daily_hadis8">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: “Svaki čovjekov posao se višestruko nagraduje. Dobro djelo nagrađuje se od deset do sedam stotina puta, osim posta, jer je Allah Uzvišeni rekao: On je Moj i ja za njega nagrađujem. On ostavlja svoje strasti i hranu radi Mene!” (Muslim. Slična verzija postoji i kod Buharije)</string>
-    <string name="daily_hadis9">Sehl b. Sa'd, r.a, prenosi da je Allahov Poslanik, s.a.v.s, rekao: “U Džennetu imaju vrata koja se zovu Rejjan. Na njih, izuzev postača, niko drugi neće ući! Upitaće se: Gdje su postači?l Oni će ustati i niko drugi na njih, osim njih, neće ući! Kada oni na njih uđu, vrata će se zatvoriti i na njih niko više neće ući.” (Buharija, Muslim, Tirmizi i Nesai)</string>
+    <string name="daily_hadis9">Sehl b. Sa\'d, r.a, prenosi da je Allahov Poslanik, s.a.v.s, rekao: “U Džennetu imaju vrata koja se zovu Rejjan. Na njih, izuzev postača, niko drugi neće ući! Upitaće se: Gdje su postači?l Oni će ustati i niko drugi na njih, osim njih, neće ući! Kada oni na njih uđu, vrata će se zatvoriti i na njih niko više neće ući.” (Buharija, Muslim, Tirmizi i Nesai)</string>
     <string name="daily_hadis10">Huzejfe b. El-Jeman, r.a, prenosi da je čuo Vjerovjesnika, s.a.v.s, kako kaže: “Smutnja za čovjeka može biti u njegovoj porodici, imovini i u susjedu, a otklanja je obavljanje namaza, post i dijeljenje zekjata!” (Buharija)</string>
     <string name="daily_hadis11">Ebu Ejjub, r.a, prenosi od Vjerovjesnika, s.a.v.s, hadis: “Ko isposti ramazan zatim to poprati sa šest dana Ševvala, kao da je čitavo vrijeme postio!” (Muslim, Tirmizi, Ebu Davud i Ibn Madže)</string>
     <string name="daily_hadis12">Ebu Hurejre, r.a, prenosi da je Poslaniik, s.a.v.s, rekao: “Ko se ne prođe lažnog govora i postupka po njemu, Allahu nije potrebno da on ostavlja svoje jelo i piće!” (Buharija, Tirmizi i Ebu Davud)</string>
-    <string name="daily_hadis13">Abdullah b. Abbas, r.a, je rekao: “Allahov Poslanik, s.a.v.s, bio je najdarežljiviji među ljudima, a najdarežljiviji je bio u Ramazanu, kada se Džibril sastajao s njim. Džibril se sastajao s njim svaku noć tokom Ramazana kada je zajedno s njim učio Kur'an. Allahov Poslanik, s.a.v.s, kada bi se s njim sastao, bio je darežljiviji od vjetra koji donosi plodonosnu kišu!” (Buharija i Muslim)</string>
+    <string name="daily_hadis13">Abdullah b. Abbas, r.a, je rekao: “Allahov Poslanik, s.a.v.s, bio je najdarežljiviji među ljudima, a najdarežljiviji je bio u Ramazanu, kada se Džibril sastajao s njim. Džibril se sastajao s njim svaku noć tokom Ramazana kada je zajedno s njim učio Kur\'an. Allahov Poslanik, s.a.v.s, kada bi se s njim sastao, bio je darežljiviji od vjetra koji donosi plodonosnu kišu!” (Buharija i Muslim)</string>
     <string name="daily_hadis14">Enes b. Malik, r.a, prenosi da je Poslanik, s.a.v.s, rekao: “Ustajte na sehur, jer je u njemu, doista, berićet!” (Buharija, Muslim, Tirmizi i Nesai)</string>
     <string name="daily_hadis15">Od Amra b. El-Asa, na, prenosi se da je Muhammed, s.a.v.s, rekao: “Razlika izmedu našeg posta i posta židova i kršćana je u ustajanju na sehur!” (Muslim, Tirmizi, Ebu Davud i Nesai)</string>
-    <string name="daily_hadis16">Od Sehl b. Sa'da, r.a, prenosi se da je Vjerovjesnik, s.a.v.s, rekao: “Ljudi će biti u dobru sve dok budu žurili s iftarom!” (Buharija, Muslim, Tirmizi i Malik u Muvettau)</string>
+    <string name="daily_hadis16">Od Sehl b. Sa\'da, r.a, prenosi se da je Vjerovjesnik, s.a.v.s, rekao: “Ljudi će biti u dobru sve dok budu žurili s iftarom!” (Buharija, Muslim, Tirmizi i Malik u Muvettau)</string>
     <string name="daily_hadis17">Od Ebu Hurejre, r.a, se prenosi da je Vjerovjesnik, s.a.v.s, rekao: “Kada od vas neko zaboravi pa nešto pojede, ili se napije, neka dovrši svoj post, jer ga je Allah nahranio i napojio!” (Buharija, Muslim, Tirmizi i Ebu Davud)</string>
     <string name="daily_hadis18">Od Aiše, r.a, prenosi se da je Muhammed, s.a.v.s, rekao: “Ko je umro, a ostao je dužan post, napostiće za njega njegova najbliža rodbina.” (Buharija)</string>
     <string name="daily_hadis19">Allahov Poslanik, s.a.v.s, da je rekao: "Ne uhodite jedni druge, ne špijunirajte, ne prekidajte odnose i ne zavađajte se, nego, Allahovi robovi, budite braća." (Buharija i Muslim) </string>
@@ -154,7 +148,6 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
 
-
     <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="iftar_doa">Iftarska dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="about_app">Ova aplikacija se koristi tako i tako. swipe. zasto dove </string>
@@ -164,3 +157,4 @@
     <string name="hideHadis">Sakrij Hadis</string>
 
 </resources>
+
