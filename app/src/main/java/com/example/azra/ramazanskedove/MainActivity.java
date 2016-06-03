@@ -11,8 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     ActionBarDrawerToggle mDrawerToggle;
-
     private CharSequence mTitle; // current title
     private  ViewPager viewPager;
     private  TextView tvSinglePageContent;
+    private ScrollView svSinglePageContent;
+    private LinearLayout llToday;
     private DrawerItemCustomAdapter adapter;
 
     @Override
@@ -60,14 +64,12 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, "Ramazanske dove");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_sehur, "Sehur dova");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_iftar, "Iftar dova");
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
-        drawerItem[4] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
-
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_iftar, "Iftarska dova");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
 
         adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
@@ -108,18 +110,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tvSinglePageContent = (TextView) findViewById(R.id.tvSinglePageContent);
-        tvSinglePageContent.setTypeface(fontHelveticaNeueMedium);
+        tvSinglePageContent.setTypeface(fontHelvetica);
+
+        svSinglePageContent = (ScrollView) findViewById(R.id.svSinglePageContent);
+        llToday = (LinearLayout) findViewById(R.id.llToday);
+
         tvToday.setTypeface(fontHelveticaNeueMedium);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -136,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
-
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
@@ -145,41 +148,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectItem(int position) {
-        mDrawerList.clearChoices();
-        mDrawerList.setSelection(position);
-        adapter.notifyDataSetChanged();
 
         mDrawerList.setItemChecked(position, true);
+        mDrawerList.setSelection(position);
 
         switch (position) {
             case 0:
                 //todo viewPager visible and on correct position
+                llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
-                tvSinglePageContent.setVisibility(View.GONE);
+                svSinglePageContent.setVisibility(View.GONE);
                 break;
             case 1:
-                //todo vp gone && text for Sehur
+                //todo vp gone && Iftar dova
+                llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.iftar_doa);
-                tvSinglePageContent.setVisibility(View.VISIBLE);
+                svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                //todo vp gone && Iftar dova
-                viewPager.setVisibility(View.GONE);
-                tvSinglePageContent.setText(R.string.iftar_doa);
-                tvSinglePageContent.setVisibility(View.VISIBLE);
-                break;
-            case 3:
                 //todo vp gone && text about app
+                llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.about_app);
-                tvSinglePageContent.setVisibility(View.VISIBLE);
+                svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
-            case 4:
+            case 3:
                 //todo vp gone && some text for contact
+                llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.contact);
-                tvSinglePageContent.setVisibility(View.VISIBLE);
+                svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             default:
                 break;

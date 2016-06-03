@@ -27,7 +27,6 @@ public class Utils {
             String mString = context.getResources().getString(stringId);
             return TextUtils.isEmpty(mString) ? "" : mString;
         }
-
         return "";
     }
 
@@ -39,7 +38,6 @@ public class Utils {
         if (context != null) {
             color = ContextCompat.getColor(context, colorId);
         }
-
         return color;
     }
 
@@ -65,7 +63,7 @@ public class Utils {
 
 
     /**
-     * @return return current time
+     * @return return day in Month Ramadan
      */
     public static int getDayInRamadan() {
         Date today = new Date();
@@ -73,11 +71,8 @@ public class Utils {
 
         List<Date> dates = new ArrayList<Date>();
 
-        //String str_date ="06/06/2016";
-        //String end_date ="05/07/2016";
-
-        String str_date ="06/05/2016";
-        String end_date ="05/06/2016";
+        String str_date ="06/06/2016";
+        String end_date ="04/07/2016";
 
 
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -95,26 +90,17 @@ public class Utils {
 
         Date iDate = startDate;
         if (iDate != null) {
-            Log.d("TAG", " not null" );
             while (!iDate.after(endDate)) {
                 dates.add(iDate);
                 iDate = addDay (iDate);
             }
         }
 
-        Log.d("TAG", " dates " + dates.size() );
-
-        Log.d("TAG", " start " + startDate );
-        Log.d("TAG", " end " + endDate );
-        Log.d("TAG", " today " + today );
-
         if(today.after(startDate) && !today.after(endDate)){
 
-            Log.d("TAG", " tu smo ");
             for (int i = 0; i < dates.size(); i++){
                 Date dateItem = dates.get(i);
                 if (dateItem.equals(today)) {
-                    Log.d("TAG", " danas je.. item u  Ramazanu.." + i);
                     return i;
                 }
             }
@@ -147,7 +133,6 @@ public class Utils {
 
         return day + ". " + months.get(m-1);
     }
-
 
     public static String getTodaysDateAsTitle(){
         if(getDayInRamadan() < 0){

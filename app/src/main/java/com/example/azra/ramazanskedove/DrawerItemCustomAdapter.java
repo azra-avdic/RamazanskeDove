@@ -35,8 +35,6 @@ public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
         Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(mContext.getAssets(),"fonts/HelveticaNeue-Medium.otf");
         Typeface fontHelveticaNeueItalic = Typeface.createFromAsset(mContext.getAssets(),"fonts/HelveticaNeue-Italic.otf");
 
-
-
         View listItem = convertView;
 
         LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();

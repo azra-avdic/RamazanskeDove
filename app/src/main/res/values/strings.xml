@@ -2,8 +2,7 @@
     <string name="app_name">RamazanskeDove</string>
     <string-array name="navigation_drawer_items_array">
         <item>Ramazanske dove</item>
-        <item>Sehur dova</item>
-        <item>Iftar dova</item>
+        <item>Iftarska dova</item>
         <item>O aplikaciji</item>
         <item>Kontakt</item>
     </string-array>
@@ -40,14 +39,9 @@
     <string name="day27_title">27. Ramazan </string>
     <string name="day28_title">28. Ramazan </string>
     <string name="day29_title">29. Ramazan </string>
-    <string name="day30_title">30. Ramazan </string>
-
-
-
 
 
     <string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
-
     <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
@@ -76,7 +70,6 @@
     <string name="daily_doa27_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILA ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILA ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa28_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa29_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
-    <string name="daily_doa30_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
 
     <string name="daily_doa1">Allahu moj, učini u ovome danu moj post, postom pravih postača, namaz, namazom pravih klanjača, i probudi me iz sna nehajnih i oprosti mi krivice o Gospodaru svijetova, i pomiluj me o Pomilovatelju griješnih.</string>
     <string name="daily_doa2">Allahu moj, učini me ovoga dana bliskim zadovoljstvu Tvome, udalji me od srdžbe i osvete Svoje, pomozi me u učenju ajeta Tvojih, tako Ti milosti o Najmilostiviji od milostivih.</string>
@@ -106,8 +99,7 @@
     <string name="daily_doa26">Allahu moj, učini mi u ovome danu trud prihvaćenim, grijehe oproštenim, djela prihvaćenim, nedostatke pokrivenim, o Ti koji najbolje čuješ od onih koji čuju!</string>
     <string name="daily_doa27">Gospodaru moj, opskrbi me u ovome danu dobrima noći Kadr, vodi moje poslove od teškoće ka lahkoći, prihvati moje pokajanje, skini s mene grijeh i breme grijeha, o Dobrostivi prema čestitim robovima svojim! </string>
     <string name="daily_doa28">Allahu moj, učini u ovome danu obilnim udio moj u dobrovoljnim djelima, počasti me udovoljavanjem molbama, približi sredstvo moje ka Tebi nad drugim sredstvima, o Ti kojeg ne zaokuplja upornost upornih! </string>
-    <string name="daily_doa29">Allahu moj, obaspi me ovoga dana milošću, opskrbi me uspjehom i negriješenjem i čistoćom srca od tmina zabluda i klevetanja, o Ti koji si Samilostan prema Svojim robovima!</string>
-    <string name="daily_doa30">Allahu moj, nagradi moj post Tvojim primanjem, i zadovoljstvom Tebe i Poslanika, učvršćenih ogranaka po čvrstim osnovama, tako Ti prava našeg prvaka Muhammeda i njegove čiste porodice, i sva hvala pripada samo Allahu Gospodaru svjetova!</string>
+    <string name="daily_doa29">Allahu moj, nagradi moj post Tvojim primanjem, i zadovoljstvom Tebe i Poslanika, učvršćenih ogranaka po čvrstim osnovama, tako Ti prava našeg prvaka Muhammeda i njegove čiste porodice, i sva hvala pripada samo Allahu Gospodaru svjetova!</string>
 
     <string name="daily_hadis1">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s, da je rekao: \“Ko posti ramazan, vjerujući i nadajući se nagradi, biće mu oprošteni grijesi, koje je prethodno pocinio!\” (Buharija i Muslim)</string>
     <string name="daily_hadis2">Ebu Hurejre, r.a, prenosi od Allahovog Poslanika, s.a.v.s: \“Kada nastupi ramazan, otvore se džennetska, zatvore džehennemska vrata a šejtani se povežu!\” (Buharija i Muslim)</string>
@@ -137,8 +129,7 @@
     <string name="daily_hadis26">Ebu Hurejre, r.a, prenosi da je Vjerovjesnik, s.a.v.s, rekao: \“Ko provede Lejletu-l-kadr u ibadetu, vjerujući i nadajući se nagradi, biće mu oprošteni prethodni grijesi!\” (Buharija i Muslim)</string>
     <string name="daily_hadis27">Od Aiše, r.a, se prenosi da je Allahov Poslanik, s.a.v.s, preporučio: \“Tražite Lejletu-l-kadr u neparnim noćima posljednjih deset dana ramazana!\” (Buhari i Muslim)</string>
     <string name="daily_hadis28">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko sakrije sramotu svoga brata na dunjaluku, Allah će sakriti njegovu i na dunjaluku i na ahiretu.\" (Buharija i Muslim) </string>
-    <string name="daily_hadis29">Allahov Poslanik, s.a.v.s, da je rekao: \"Dova brata za drugog brata koji je odsutan se ne odbija.\" (Muslim)</string>
-    <string name="daily_hadis30">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko hoće da ima lijep spomen iza sebe i da mu se poveća opkrba, neka čuva rodbinske veze.\" (Buharija i Muslim) </string>
+    <string name="daily_hadis29">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko hoće da ima lijep spomen iza sebe i da mu se poveća opkrba, neka čuva rodbinske veze.\" (Buharija i Muslim) </string>
 
     <string name="app_name_splash">Ramazanske dove <sup><small>&#169;</small></sup></string>
     <string name="app_name_tm"> Ramazanske dove &#169;</string>

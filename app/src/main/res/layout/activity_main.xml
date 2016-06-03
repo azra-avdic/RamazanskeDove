@@ -71,21 +71,29 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvSinglePageContent"
+            <ScrollView
+                android:id="@+id/svSinglePageContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/llToday"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lorem_ipsum"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:gravity="center"
                 android:visibility="gone"
-                />
+                tools:visibility = "visible"
+                android:fadeScrollbars="false"
+                >
+                <TextView
+                    android:id="@+id/tvSinglePageContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/today_title_text_size"
+                    android:gravity="center"
+                    />
+            </ScrollView>
 
             <android.support.v4.view.ViewPager
                 android:layout_below="@+id/llToday"

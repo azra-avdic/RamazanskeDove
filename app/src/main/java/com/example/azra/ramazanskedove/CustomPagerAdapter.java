@@ -62,7 +62,6 @@ public class CustomPagerAdapter extends PagerAdapter {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("CLICK", " click");
                 if(ivDown.getVisibility() == View.VISIBLE){
                     svHadis.setVisibility(View.GONE);
                     ivDown.setVisibility(View.GONE);
@@ -152,9 +151,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         DAY26(R.string.day26_title, R.string.daily_doa26_arabic, R.string.daily_doa26, R.string.daily_hadis26),
         DAY27(R.string.day27_title, R.string.daily_doa27_arabic, R.string.daily_doa27, R.string.daily_hadis27),
         DAY28(R.string.day28_title, R.string.daily_doa28_arabic, R.string.daily_doa28, R.string.daily_hadis28),
-        DAY29(R.string.day29_title, R.string.daily_doa29_arabic, R.string.daily_doa29, R.string.daily_hadis29),
-        DAY30(R.string.day30_title, R.string.daily_doa30_arabic, R.string.daily_doa30, R.string.daily_hadis30);
-
+        DAY29(R.string.day29_title, R.string.daily_doa29_arabic, R.string.daily_doa29, R.string.daily_hadis29);
 
         private int mTitleResId;
         private int mDoaArabResId;
