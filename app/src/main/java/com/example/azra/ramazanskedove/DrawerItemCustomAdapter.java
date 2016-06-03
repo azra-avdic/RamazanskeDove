@@ -2,6 +2,7 @@ package com.example.azra.ramazanskedove;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,20 +30,25 @@ public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        Typeface fontHelveticaNeue = Typeface.createFromAsset(mContext.getAssets(), "fonts/HelveticaNeue.otf");
+        Typeface fontHelveticaObl = Typeface.createFromAsset(mContext.getAssets(),"fonts/Helvetica-Oblique.ttf");
+        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(mContext.getAssets(),"fonts/HelveticaNeue-Medium.otf");
+        Typeface fontHelveticaNeueItalic = Typeface.createFromAsset(mContext.getAssets(),"fonts/HelveticaNeue-Italic.otf");
+
+
+
         View listItem = convertView;
 
         LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
         listItem = inflater.inflate(layoutResourceId, parent, false);
 
         ImageView imageViewIcon = (ImageView) listItem.findViewById(R.id.imageViewIcon);
-        TextView textViewName = (TextView) listItem.findViewById(R.id.textViewName);
+        TextView tvOption = (TextView) listItem.findViewById(R.id.tvOption);
 
-        ObjectDrawerItem folder = data[position];
-
-
-        imageViewIcon.setImageResource(folder.icon);
-        textViewName.setText(folder.name);
-
+        ObjectDrawerItem drawerItem = data[position];
+        imageViewIcon.setImageResource(drawerItem.icon);
+        tvOption.setText(drawerItem.name);
+        tvOption.setTypeface(fontHelveticaNeueItalic);
         return listItem;
     }
 

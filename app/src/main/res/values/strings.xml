@@ -153,5 +153,8 @@
     <string name="iftar_doa">Iftarska dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="about_app">Ova aplikacija se koristi tako i tako. swipe. zasto dove </string>
     <string name="contact"> telefon mail </string>
+    <string name="splach_text">Sve dove su preuzete iz hadisi iz...</string>
+    <string name="showHadis">Prikaži Hadis</string>
+    <string name="hideHadis">Sakrij Hadis</string>
 
 </resources>

@@ -20,4 +20,6 @@
     <color name="dark_green">#062E2E</color>
     <color name="dark_green_selected">#0F3A39</color>
     <color name="orange">#F65F4E</color>
+    <color name="border_gray">#5A6873</color>
+
 </resources>

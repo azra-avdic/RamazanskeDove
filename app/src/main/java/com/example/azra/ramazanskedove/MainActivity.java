@@ -1,6 +1,6 @@
 package com.example.azra.ramazanskedove;
 
-
+import android.graphics.Typeface;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
+        Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
+        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(),"fonts/HelveticaNeue-Medium.otf");
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -60,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
 
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Ramazanske dove");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Sehur dova");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Iftar dova");
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_copy, "O aplikaciji");
-        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Kontakt");
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, "Ramazanske dove");
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_sehur, "Sehur dova");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_iftar, "Iftar dova");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
+        drawerItem[4] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
 
 
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
@@ -103,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tvSinglePageContent = (TextView) findViewById(R.id.tvSinglePageContent);
-
+        tvSinglePageContent.setTypeface(fontHelveticaNeueMedium);
+        tvToday.setTypeface(fontHelveticaNeueMedium);
 
     }
 
