@@ -42,12 +42,12 @@
     <string name="day29_title">29. Ramazan </string>
     <string name="day30_title">30. Ramazan </string>
 
-<<<<<<< HEAD
-    <string name="daily_doa1_arabic"> jj</string>
-=======
+
+
+
 
     <string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
->>>>>>> e33c26aede05670108396ccc7286a95e0c02ba8f
+
     <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
     <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH...</string>
@@ -140,8 +140,8 @@
     <string name="daily_hadis29">Allahov Poslanik, s.a.v.s, da je rekao: \"Dova brata za drugog brata koji je odsutan se ne odbija.\" (Muslim)</string>
     <string name="daily_hadis30">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko hoće da ima lijep spomen iza sebe i da mu se poveća opkrba, neka čuva rodbinske veze.\" (Buharija i Muslim) </string>
 
-    <string name="app_name_splash">Ramazanske dove <sup><small>&#174;</small></sup></string>
-    <string name="app_name_tm"> Ramazanske dove &#8482;</string>
+    <string name="app_name_splash">Ramazanske dove <sup><small>&#169;</small></sup></string>
+    <string name="app_name_tm"> Ramazanske dove &#169;</string>
 
 
     <string name="toolbar_title_">Ramazanske dove</string>
@@ -150,10 +150,15 @@
 
 
     <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-    <string name="iftar_doa">Iftarska dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-    <string name="about_app">Ova aplikacija se koristi tako i tako. swipe. zasto dove </string>
-    <string name="contact"> telefon mail </string>
-    <string name="splach_text">Sve dove su preuzete iz hadisi iz...</string>
+    <string name="iftar_doa">ALLAAHUMME INNII LEKE SUMTU VE BIKE AAMENTU VE \'ALEJKE TEVEKKELTU VE \'ALAA RIZKIKE EFTARTU. \n \n
+                            Allahu moj, Tebi sam postio, u Tebe vjerujem, u Tebe se uzdam i onim što si mi Ti dao, iftarim se.</string>
+    <string name="about_app">Dova je nerazdvojivi dio ramazanskog posta. Uzvišeni je rekao: \"A kada  te robovi Moji za Mene upitaju, Ja sam, sigurno blizu: odazivam se molbi molitelja kada Me zamoli. Zato neka oni pozivu Mome udovolje i neka vjeruju u mene, da bi bili na pravom putu.\" (El-Bekare, 186.)\n \n
+                            U hadisima se navodi da je dova vjernikovo oružje, najbolji lijek i neprijatelj belaja i nesreća. Ona tjera nesreću, neutrališe je, sprječava njeno dešavanje i ublažava je kada se desi. \n \n
+Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana. Možete slobodno prelistati i sljedeće i prethodne dane tako da u jednom danu možete izgovoriti svih 30 dova. \n \n
+Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt forme.
+ </string>
+    <string name="contact"> Za sva pitanja i sugestije, molimo obratite se putem emaila: \n \n avdic.azra@gmail.com </string>
+    <string name="splach_text">Dova je nerazdvojivi dio ramazanskog posta.</string>
     <string name="showHadis">Prikaži Hadis</string>
     <string name="hideHadis">Sakrij Hadis</string>
 
