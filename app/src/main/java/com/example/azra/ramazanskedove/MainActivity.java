@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private CharSequence mTitle; // current title
     private  ViewPager viewPager;
     private  TextView tvSinglePageContent;
+    private DrawerItemCustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
         Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
         Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(),"fonts/HelveticaNeue-Medium.otf");
 
-        // Find the toolbar view inside the activity layout
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
         // Set the padding to match the Status Bar height
@@ -70,9 +69,12 @@ public class MainActivity extends AppCompatActivity {
         drawerItem[4] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
 
 
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
+        adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        mDrawerList.setSelection(0);
+        mDrawerList.setItemChecked(0, true);
 
         mTitle = getTitle();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectItem(int position) {
+        mDrawerList.clearChoices();
+        mDrawerList.setSelection(position);
+        adapter.notifyDataSetChanged();
+
+        mDrawerList.setItemChecked(position, true);
 
         switch (position) {
             case 0:
@@ -178,9 +185,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-
-        mDrawerList.setItemChecked(position, true);
-        mDrawerList.setSelection(position);
         setTitle(mNavigationDrawerItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }

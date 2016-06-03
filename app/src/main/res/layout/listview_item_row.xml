@@ -33,7 +33,7 @@
         android:text="Opcija"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="@dimen/drawer_item_size"
         />
 
 
