@@ -19,16 +19,18 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Drawer
     private String[] mNavigationDrawerItemTitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     ActionBarDrawerToggle mDrawerToggle;
+
     private CharSequence mTitle; // current title
     private  ViewPager viewPager;
     private  TextView tvSinglePageContent;
     private ScrollView svSinglePageContent;
     private LinearLayout llToday;
-    private DrawerItemCustomAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this));
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0: Utils.getDayInRamadan());
-        Log.d("TAG", Utils.getTodayAsStringDayAndMonth());
+
         TextView tvToday = (TextView) findViewById(R.id.tvToday);
         if (tvToday != null) {
             tvToday.setText(Utils.getTodaysDateAsTitle());
@@ -69,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
         drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
 
-        adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
+        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
         mDrawerList.setSelection(0);
         mDrawerList.setItemChecked(0, true);
 
@@ -151,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectItem(int position) {
-
+        mDrawerList.clearChoices();
+        mDrawerList.requestLayout();
         mDrawerList.setItemChecked(position, true);
         mDrawerList.setSelection(position);
 
@@ -186,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-
         setTitle(mNavigationDrawerItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
