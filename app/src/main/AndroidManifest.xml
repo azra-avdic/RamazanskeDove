@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.azra.ramazanskedove">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coderock.azra.ramazanskedove"
+    >
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/app_icon_large"
-        android:label="@string/app_name_tm"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        >
-
-        <activity
-            android:name=".SplashActivity"
-            android:screenOrientation="portrait"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAINACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-
-    </application>
 
     <compatible-screens>
         <!-- all small size screens -->
@@ -46,5 +16,36 @@
         <screen android:screenSize="normal" android:screenDensity="mdpi" />
         <screen android:screenSize="normal" android:screenDensity="hdpi" />
         <screen android:screenSize="normal" android:screenDensity="xhdpi" />
+
     </compatible-screens>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon_large"
+        android:label="@string/app_name_tm"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        >
+        <activity
+            android:name="com.coderock.azra.ramazanskedove.SplashActivity"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.coderock.azra.ramazanskedove.MainActivity"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAINACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+    </application>
 </manifest>
