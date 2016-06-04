@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
         Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(),"fonts/HelveticaNeue-Medium.otf");
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
