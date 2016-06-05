@@ -95,6 +95,7 @@
                     android:textSize="@dimen/today_title_text_size"
                     android:gravity="center"
                     />
+
             </ScrollView>
 
             <android.support.v4.view.ViewPager

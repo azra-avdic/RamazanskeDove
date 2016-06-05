@@ -1,6 +1,8 @@
 package com.coderock.azra.ramazanskedove;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -8,14 +10,27 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.method.MovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle mDrawerToggle;
 
     private CharSequence mTitle; // current title
-    private  ViewPager viewPager;
-    private  TextView tvSinglePageContent;
+    private ViewPager viewPager;
+    private TextView tvSinglePageContent;
     private ScrollView svSinglePageContent;
     private LinearLayout llToday;
 
@@ -39,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
         Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
-        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(),"fonts/HelveticaNeue-Medium.otf");
+        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Set the padding to match the Status Bar height
-       // toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
+        // toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
         getSupportActionBar().setTitle("Ramazanske dove");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -53,14 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this));
-        viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0: Utils.getDayInRamadan());
+        viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
         TextView tvToday = (TextView) findViewById(R.id.tvToday);
         if (tvToday != null) {
             tvToday.setText(Utils.getTodaysDateAsTitle());
         }
 
-        mNavigationDrawerItemTitles= getResources().getStringArray(R.array.navigation_drawer_items_array);
+        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -93,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
             }
+
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -183,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
                 //todo vp gone && some text for contact
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
-                tvSinglePageContent.setText(R.string.contact);
                 svSinglePageContent.setVisibility(View.VISIBLE);
+                setClickableText();
                 break;
             default:
                 break;
@@ -193,13 +209,49 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
-    // A method to find height of the status bar
-    public int getStatusBarHeight() {
-        int result = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
+
+    protected void sendEmail() {
+        Log.i("Send email", "");
+        String[] TO = {"avdic.azra@gmail.com"};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
+
+       // emailIntent.setData(Uri.parse("mailto:"));
+       // emailIntent.setType("text/plain");
+       // emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+      //  emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove Feedback");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished", "sending email...");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
-        return result;
     }
+
+    public void setClickableText() {
+
+        String staticPart = "Za sva pitanja i sugestije, molimo obratite se putem emaila:\n\n\n";
+        SpannableString clickablePart = new SpannableString("avdic.azra@gmail.com");
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                sendEmail();
+            }
+        };
+        clickablePart.setSpan(clickableSpan, 0, clickablePart.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        clickablePart.setSpan(new UnderlineSpan(), 0, clickablePart.length(), 0);
+        clickablePart.setSpan(new StyleSpan(Typeface.BOLD), 0, clickablePart.length(), 0);
+        clickablePart.setSpan(new ForegroundColorSpan(Utils.getColor(this, R.color.white)), 0, clickablePart.length(), 0);
+
+        tvSinglePageContent.setText(staticPart);
+        tvSinglePageContent.append(clickablePart);
+
+        tvSinglePageContent.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
 }
