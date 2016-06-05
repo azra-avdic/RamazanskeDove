@@ -1,14 +1,19 @@
 package com.coderock.azra.ramazanskedove;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Azra on 30.5.2016.
@@ -79,9 +84,9 @@ public class CustomPagerAdapter extends PagerAdapter {
         ivUp.setOnClickListener(listener);
         ivDown.setOnClickListener(listener);
 
+
         return layout;
     }
-
 
 
     @Override

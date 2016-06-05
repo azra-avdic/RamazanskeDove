@@ -1,6 +1,9 @@
 package com.coderock.azra.ramazanskedove;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v4.view.GravityCompat;
@@ -26,13 +29,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+    public static final String viberId ="com.viber.voip";
+    public static final String msnId ="com.facebook.orca";
 
     // Drawer
     private String[] mNavigationDrawerItemTitles;
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvSinglePageContent;
     private ScrollView svSinglePageContent;
     private LinearLayout llToday;
-
+    private CustomPagerAdapter customPageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +67,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Set the padding to match the Status Bar height
-        // toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
         getSupportActionBar().setTitle("Ramazanske dove");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this));
+        customPageAdapter = new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this);
+        viewPager.setAdapter(customPageAdapter);
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
         TextView tvToday = (TextView) findViewById(R.id.tvToday);
@@ -137,6 +143,18 @@ public class MainActivity extends AppCompatActivity {
         if (tvToday != null) {
             tvToday.setTypeface(fontHelveticaNeueMedium);
         }
+
+       ImageView tvShare = (ImageView) findViewById(R.id.ivShare);
+
+        final Context context = this;
+
+        tvShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //share();
+                sendMessage(context, "example", msnId);
+            }
+        });
 
     }
 
@@ -224,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(emailIntent, "Pošalji feedback email..."));
             finish();
             Log.i("Finished", "sending email...");
         } catch (android.content.ActivityNotFoundException ex) {
@@ -254,4 +272,55 @@ public class MainActivity extends AppCompatActivity {
         tvSinglePageContent.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+
+    protected void share() {
+        Log.i("Share", "");
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Ramazanske dove");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, customPageAdapter.getDoa(viewPager.getCurrentItem()));
+
+        try {
+            startActivity(Intent.createChooser(shareIntent, "Podijeli ramazansku dovu sa..."));
+            finish();
+            Log.i("Finished", "share...");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this, "There is no client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+    private void sendMessage(Context context, String message, String appIds)
+    {
+        final boolean isAppInstalled =isAppAvailable(context, appIds);
+
+        if (isAppInstalled)
+        {
+            Intent myIntent = new Intent(Intent.ACTION_SEND);
+            myIntent.setType("text/plain");
+            myIntent.setPackage(appIds);
+            myIntent.putExtra(Intent.EXTRA_TEXT, message);
+            startActivity(Intent.createChooser(myIntent, "Share with"));
+        }
+        else
+        {
+            Toast.makeText(context, "App not Installed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isAppAvailable(Context context, String appName)
+    {
+        PackageManager pm = context.getPackageManager();
+        try
+        {
+            pm.getPackageInfo(appName, PackageManager.GET_ACTIVITIES);
+            return true;
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            return false;
+        }
+    }
 }

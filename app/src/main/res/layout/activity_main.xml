@@ -70,6 +70,16 @@
                     android:textSize="@dimen/today_title_text_size"
                     />
 
+                <ImageView
+                    android:id="@+id/ivShare"
+                    android:layout_width="@dimen/calendar_image_size"
+                    android:layout_height="@dimen/calendar_image_size"
+                    android:padding="@dimen/calendar_image_padding"
+                    android:src="@drawable/ico_calendar"
+                    />
+
+
+
 
             </LinearLayout>
 
