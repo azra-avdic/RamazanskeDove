@@ -19,7 +19,6 @@
         android:tint="@color/green_light"
         android:layout_width="match_parent"
         android:layout_height="@dimen/up_down_image_height"
-        tools:background="@color/white_50"
         />
 
     <TextView
@@ -31,7 +30,6 @@
         android:gravity="center"
         android:textSize="@dimen/today_title_text_size"
         android:clickable="true"
-        tools:background="@color/white_50"
         />
 
     <ImageView
@@ -43,8 +41,6 @@
         android:visibility = "gone"
         tools:visibility ="visible"
         android:layout_height="@dimen/up_down_image_height"
-        tools:background="@color/white_50"
-
         />
 
     <ScrollView

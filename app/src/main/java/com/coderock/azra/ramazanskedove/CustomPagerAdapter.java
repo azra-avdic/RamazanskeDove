@@ -41,7 +41,8 @@ public class CustomPagerAdapter extends PagerAdapter {
         final TextView tvHadis = (TextView) layout.findViewById(R.id.tvHadisContent);
 
 
-        tvTitle.setText("Dova za " + getPageTitle(position));
+        tvTitle.setText(getPageTitle(position));
+
         tvDoaAbrab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
@@ -51,7 +52,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         tvDoaAbrab.setTypeface(fontHelvetica);
         tvDoa.setTypeface(fontHelvetica);
         tvHadis.setTypeface(fontHelvetica);
-        tvHadisTitle.setTypeface(fontHelveticaObl);
+        tvHadisTitle.setTypeface(fontHelvetica);
 
 
         collection.addView(layout);
