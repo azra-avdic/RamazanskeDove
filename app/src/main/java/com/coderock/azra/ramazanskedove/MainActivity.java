@@ -10,22 +10,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
-import android.text.method.MovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -211,24 +205,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     protected void sendEmail() {
-        Log.i("Send email", "");
-        String[] TO = {"avdic.azra@gmail.com"};
-        String[] CC = {""};
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
 
-       // emailIntent.setData(Uri.parse("mailto:"));
-       // emailIntent.setType("text/plain");
-       // emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-      //  emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove Feedback");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove - Pitanja i sugestije");
+        //emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(emailIntent, "Pošalji email koristeći..."));
             finish();
-            Log.i("Finished", "sending email...");
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Email client nije instaliran na vašem telefonu.", Toast.LENGTH_SHORT).show();
         }
     }
 

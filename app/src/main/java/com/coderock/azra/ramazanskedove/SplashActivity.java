@@ -17,7 +17,6 @@ public class SplashActivity  extends Activity {
         setContentView(R.layout.splash_screen);
         Typeface fontHelveticaExtNormal = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaExt-Normal.ttf");
 
-
         TextView tvAppName = (TextView) findViewById(R.id.tvAppName);
         tvAppName.setText(Html.fromHtml(getString(R.string.app_name_tm)));
         tvAppName.setTypeface(fontHelveticaExtNormal);

@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "com.coderock.azra.ramazanskedove"
         minSdkVersion 14
-        versionCode 9
+        versionCode 11
         versionName "1.0"
     }
     buildTypes {

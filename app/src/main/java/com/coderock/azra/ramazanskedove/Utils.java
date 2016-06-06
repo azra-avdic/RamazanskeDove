@@ -3,8 +3,8 @@ package com.coderock.azra.ramazanskedove;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -73,7 +73,6 @@ public class Utils {
         String str_date ="06/06/2016";
         String end_date ="04/07/2016";
 
-
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date  startDate = null;
         Date  endDate = null;
@@ -95,10 +94,10 @@ public class Utils {
             }
         }
 
-        if(today.after(startDate) && !today.after(endDate)){
-
+        if(!today.before(startDate) && !today.after(endDate)){
             for (int i = 0; i < dates.size(); i++){
                 Date dateItem = dates.get(i);
+                Log.d("TAG", " i " +dateItem);
                 if (dateItem.equals(today)) {
                     return i;
                 }
