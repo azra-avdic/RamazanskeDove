@@ -25,93 +25,47 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import butterknife.BindArray;
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Drawer
-    private String[] mNavigationDrawerItemTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+    @BindView(R.id.tvSinglePageContent) TextView tvSinglePageContent;
+    @BindView(R.id.svSinglePageContent) ScrollView svSinglePageContent;
+    @BindView(R.id.llToday) LinearLayout llToday;
+    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.left_drawer) ListView mDrawerList;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.viewpager) ViewPager viewPager;
+    @BindView(R.id.tvToday) TextView tvToday;
+    @BindArray(R.array.navigation_drawer_items_array)  String[] mNavigationDrawerItemTitles;
+
     ActionBarDrawerToggle mDrawerToggle;
-
     private CharSequence mTitle; // current title
-    private ViewPager viewPager;
-    private TextView tvSinglePageContent;
-    private ScrollView svSinglePageContent;
-    private LinearLayout llToday;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
-        Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
-        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Set the padding to match the Status Bar height
-        // toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
         getSupportActionBar().setTitle("Ramazanske dove");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        mTitle = getTitle();
 
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this));
+        viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(getSupportFragmentManager(),this));
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
-        TextView tvToday = (TextView) findViewById(R.id.tvToday);
         if (tvToday != null) {
             tvToday.setText(Utils.getTodaysDateAsTitle());
         }
 
-        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
-
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, "Ramazanske dove");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_iftar, "Iftarska dova");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
-
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
-        mDrawerList.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        mDrawerList.setSelection(0);
-        mDrawerList.setItemChecked(0, true);
-
-        mTitle = getTitle();
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                toolbar,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {
-
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-
-            }
-        };
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
+        setupDrawerList();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,19 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        tvSinglePageContent = (TextView) findViewById(R.id.tvSinglePageContent);
-        if (tvSinglePageContent != null) {
-            tvSinglePageContent.setTypeface(fontHelvetica);
-        }
-
-        svSinglePageContent = (ScrollView) findViewById(R.id.svSinglePageContent);
-        llToday = (LinearLayout) findViewById(R.id.llToday);
-
-        if (tvToday != null) {
-            tvToday.setTypeface(fontHelveticaNeueMedium);
-        }
-
+        setFonts();
     }
 
     @Override
@@ -170,31 +112,31 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                //todo viewPager visible and on correct position
+                //viewPager visible
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
                 svSinglePageContent.setVisibility(View.GONE);
                 break;
             case 1:
-                //todo vp gone && Iftar dova
+                //viewPager gone && single page content: Iftar dova
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.iftar_doa);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                //todo vp gone && text about app
+                //viewPager gone && single page content: About app
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.about_app);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 3:
-                //todo vp gone && some text for contact
+                //viewPager gone && single page content: Contact form
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 svSinglePageContent.setVisibility(View.VISIBLE);
-                setClickableText();
+                setClickableText(tvSinglePageContent);
                 break;
             default:
                 break;
@@ -204,11 +146,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void sendEmail() {
+    /**
+     * Starts Activity with chooser dialog: email clients on phone, populates email subject and recipient
+     */
 
+    protected void sendEmail() {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove - Pitanja i sugestije");
-        //emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Pošalji email koristeći..."));
@@ -218,7 +162,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setClickableText() {
+    /**
+     * @param tvSinglePageContent -TextView object
+     *  method populates TextView with contact text and email which is clickable: click invokes sendEmail action
+     */
+
+    public void setClickableText(TextView tvSinglePageContent) {
 
         String staticPart = "Za sva pitanja i sugestije, molimo obratite se putem emaila:\n\n\n";
         SpannableString clickablePart = new SpannableString("avdic.azra@gmail.com");
@@ -238,6 +187,57 @@ public class MainActivity extends AppCompatActivity {
         tvSinglePageContent.append(clickablePart);
 
         tvSinglePageContent.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void setupDrawerList(){
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, mNavigationDrawerItemTitles[0]);
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_iftar, mNavigationDrawerItemTitles[1]);
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, mNavigationDrawerItemTitles[2]);
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, mNavigationDrawerItemTitles[3]);
+
+        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
+        mDrawerList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerList.setSelection(0);
+        mDrawerList.setItemChecked(0, true);
+
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                toolbar,
+                R.string.drawer_open,
+                R.string.drawer_close
+        ) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+
+            }
+        };
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+    public void setFonts(){
+        Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
+        Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
+        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
+
+        if (tvSinglePageContent != null) {
+            tvSinglePageContent.setTypeface(fontHelvetica);
+        }
+
+        if (tvToday != null) {
+            tvToday.setTypeface(fontHelveticaNeueMedium);
+        }
     }
 
 }

@@ -62,38 +62,38 @@ public class Utils {
 
 
     /**
-     * @return return day in Month Ramadan
+     * @return
+     * returns today's Ramadan day: 0 - 28 if it is Ramadan
+     * returns -1 if it is not Month Ramadan
      */
     public static int getDayInRamadan() {
-        Date today = new Date();
-        today = setTimeToMidnight(today);
-
-        List<Date> dates = new ArrayList<Date>();
-
-        String str_date ="06/06/2016";
-        String end_date ="04/07/2016";
-
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String start_date ="06/06/2016";
+        String end_date ="04/07/2016";
+        Date today = new Date();
+
         Date  startDate = null;
         Date  endDate = null;
         try {
-            startDate = (Date)formatter.parse(str_date);
+            startDate = (Date)formatter.parse(start_date);
             endDate = (Date)formatter.parse(end_date);
+            today = (Date) formatter.parse(formatter.format(today));
         } catch (ParseException e) {
             e.printStackTrace();
             return -1;
         }finally {
 
         }
-
+        // generate list of days in Ramadan in Date format
+        List<Date> dates = new ArrayList<Date>();
         Date iDate = startDate;
         if (iDate != null) {
             while (!iDate.after(endDate)) {
                 dates.add(iDate);
-                iDate = addDay (iDate);
+                iDate = addDayToDate(iDate);
             }
         }
-
+        // generate list of days in Ramadan in Date format
         if(!today.before(startDate) && !today.after(endDate)){
             for (int i = 0; i < dates.size(); i++){
                 Date dateItem = dates.get(i);
@@ -106,14 +106,17 @@ public class Utils {
         return -1;
     }
 
+    /**
+     * @return returns String for today's Date in format "20. Juni"
+     */
 
-    public static String getTodayAsStringDayAndMonth(){
+    public static String getTodayDayAndMonthAsString(){
         Date today = new Date();
 
-        String intMonth = (String) android.text.format.DateFormat.format("MM", today); //06
-        String day = (String) android.text.format.DateFormat.format("dd", today); //20
+        String intMonth = (String) android.text.format.DateFormat.format("MM", today); //example "06"
+        String day = (String) android.text.format.DateFormat.format("dd", today); //example "20"
 
-        int m = Integer.parseInt(intMonth);
+        int m = Integer.parseInt(intMonth); //convert month to int
 
         ArrayList<String> months = new ArrayList<String>();
         months.add("Januar");
@@ -129,25 +132,42 @@ public class Utils {
         months.add("Novembar");
         months.add("Decembar");
 
-        return day + ". " + months.get(m-1);
+        return day + ". " + months.get(m-1); //example "20. Juni"
     }
+
+
+    /**
+     * @return
+     * returns String for today's Date in format "20. Juni / 05. Ramazan" if it is Ramazan
+     * returns String for today's Date in format "20. Juli" if it is not Ramazan
+     */
 
     public static String getTodaysDateAsTitle(){
         if(getDayInRamadan() < 0){
-            return getTodayAsStringDayAndMonth();
+            return getTodayDayAndMonthAsString();
         }else {
             int day = getDayInRamadan() + 1;
             String ramadanDate = day + ". Ramazan";
-            return getTodayAsStringDayAndMonth() + " / " + ramadanDate;
+            return getTodayDayAndMonthAsString() + " / " + ramadanDate;
         }
     }
 
-    public static Date addDay(Date d){
+    /**
+     * @param date - Date object
+     * @return Date which is one day after parametar date
+     */
+
+    public static Date addDayToDate(Date date){
         Calendar cal = Calendar.getInstance();
-        cal.setTime(d);
+        cal.setTime(date);
         cal.add(Calendar.DATE, 1);
         return cal.getTime();
     }
+
+    /**
+     * @param date - Date
+     * @return returns same Date with time set to midnight
+     */
 
     public static Date setTimeToMidnight(Date date) {
         Calendar calendar = Calendar.getInstance();
