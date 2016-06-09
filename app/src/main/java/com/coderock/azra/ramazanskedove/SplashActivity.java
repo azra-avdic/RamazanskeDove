@@ -6,18 +6,20 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-/**
- * Created by Azra on 30.5.2016.
- */
 public class SplashActivity  extends Activity {
+
+    @BindView(R.id.tvAppName) TextView tvAppName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+        ButterKnife.bind(this);
         Typeface fontHelveticaExtNormal = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaExt-Normal.ttf");
 
-        TextView tvAppName = (TextView) findViewById(R.id.tvAppName);
         tvAppName.setText(Html.fromHtml(getString(R.string.app_name_tm)));
         tvAppName.setTypeface(fontHelveticaExtNormal);
 

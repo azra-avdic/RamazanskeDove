@@ -26,7 +26,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindArray;
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tvToday) TextView tvToday;
     @BindArray(R.array.navigation_drawer_items_array)  String[] mNavigationDrawerItemTitles;
 
-    ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mTitle; // current title
 
     @Override
@@ -52,17 +51,18 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Ramazanske dove");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Utils.getString(this, R.string.toolbar_title));
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
         mTitle = getTitle();
 
-
-        viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(getSupportFragmentManager(),this));
+        viewPager.setAdapter(new PagesAdapter(getSupportFragmentManager(),this));
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
         if (tvToday != null) {
-            tvToday.setText(Utils.getTodaysDateAsTitle());
+            tvToday.setText(getCurrentDateInTitleFormat());
         }
 
         setupDrawerList();
@@ -78,16 +78,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(mTitle);
+        }
     }
 
     @Override
@@ -112,27 +111,23 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                //viewPager visible
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
                 svSinglePageContent.setVisibility(View.GONE);
                 break;
             case 1:
-                //viewPager gone && single page content: Iftar dova
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.iftar_doa);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                //viewPager gone && single page content: About app
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.about_app);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 3:
-                //viewPager gone && single page content: Contact form
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 svSinglePageContent.setVisibility(View.VISIBLE);
@@ -145,27 +140,17 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
-
-    /**
-     * Starts Activity with chooser dialog: email clients on phone, populates email subject and recipient
-     */
-
     protected void sendEmail() {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove - Pitanja i sugestije");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", getString(R.string.email_mailto), null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Pošalji email koristeći..."));
+            startActivity(Intent.createChooser(emailIntent, getString(R.string.email_dialog_title)));
             finish();
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MainActivity.this, "Email client nije instaliran na vašem telefonu.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, R.string.email_exception_toast_mssg, Toast.LENGTH_SHORT).show();
         }
     }
-
-    /**
-     * @param tvSinglePageContent -TextView object
-     *  method populates TextView with contact text and email which is clickable: click invokes sendEmail action
-     */
 
     public void setClickableText(TextView tvSinglePageContent) {
 
@@ -190,13 +175,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setupDrawerList(){
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, mNavigationDrawerItemTitles[0]);
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_iftar, mNavigationDrawerItemTitles[1]);
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, mNavigationDrawerItemTitles[2]);
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, mNavigationDrawerItemTitles[3]);
+        DrawerItem[] drawerItem = new DrawerItem[4];
+        drawerItem[0] = new DrawerItem(R.drawable.book, mNavigationDrawerItemTitles[0]);
+        drawerItem[1] = new DrawerItem(R.drawable.dish, mNavigationDrawerItemTitles[1]);
+        drawerItem[2] = new DrawerItem(R.drawable.information, mNavigationDrawerItemTitles[2]);
+        drawerItem[3] = new DrawerItem(R.drawable.envelope, mNavigationDrawerItemTitles[3]);
 
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
+        DrawerAdapter adapter = new DrawerAdapter(this, R.layout.listview_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
@@ -210,17 +195,13 @@ public class MainActivity extends AppCompatActivity {
                 R.string.drawer_open,
                 R.string.drawer_close
         ) {
-
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
             }
 
             /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-
-            }
+            public void onDrawerOpened(View drawerView) {super.onDrawerOpened(drawerView);}
         };
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -228,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void setFonts(){
         Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
-        Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
         Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
 
         if (tvSinglePageContent != null) {
@@ -240,4 +220,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static String getCurrentDateInTitleFormat(){
+        if(Utils.getDayInRamadan() < 0){
+            return Utils.getTodayDayAndMonthAsString();
+        }else {
+            int day = Utils.getDayInRamadan() + 1;
+            String ramadanDate = day + ". Ramazan";
+            return Utils.getTodayDayAndMonthAsString() + " / " + ramadanDate;
+        }
+    }
 }

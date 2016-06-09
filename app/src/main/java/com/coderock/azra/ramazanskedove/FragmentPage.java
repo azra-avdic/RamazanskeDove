@@ -10,19 +10,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
-/**
- * Created by Azra on 8.6.2016.
- */
 public class FragmentPage extends Fragment {
-
+    public static final String POSITION = "POSITION";
     private int position;
+    private Unbinder unbinder;
 
-    // newInstance constructor for creating fragment with arguments
+    @BindView(R.id.tvTitle) TextView tvTitle;
+    @BindView(R.id.tvDoaArab) TextView tvDoaArab;
+    @BindView(R.id.tvDoa) TextView tvDoa;
+    @BindView(R.id.tvHadisContent) TextView tvHadis;
+    @BindView(R.id.tvHadisTitle) TextView tvHadisTitle;
+    @BindView(R.id.ivUp) ImageView ivUp;
+    @BindView(R.id.ivDown) ImageView ivDown;
+    @BindView(R.id.svHadis) ScrollView svHadis;
+
+    // newInstance constructor for creating fragment with argument
     public static FragmentPage newInstance(int position) {
         FragmentPage fragmentPage = new FragmentPage();
         Bundle args = new Bundle();
-        args.putInt("position", position);
+        args.putInt(POSITION, position);
         fragmentPage.setArguments(args);
         return fragmentPage;
     }
@@ -30,7 +40,7 @@ public class FragmentPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        position = getArguments().getInt("position", 0);
+        position = getArguments().getInt(POSITION, 0);
     }
 
 
@@ -39,31 +49,13 @@ public class FragmentPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_page, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
-        TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        TextView tvDoaAbrab = (TextView) view.findViewById(R.id.tvDoaArab);
-        TextView tvDoa = (TextView) view.findViewById(R.id.tvDoa);
-
-        final TextView tvHadisTitle = (TextView) view.findViewById(R.id.tvHadisTitle);
-        final ImageView ivUp = (ImageView) view.findViewById(R.id.ivUp);
-        final ImageView ivDown = (ImageView) view.findViewById(R.id.ivDown);
-        final ScrollView svHadis = (ScrollView) view.findViewById(R.id.svHadis);
-
-        TextView tvHadis = (TextView) view.findViewById(R.id.tvHadisContent);
-
-        Typeface fontHelvetica = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica.ttf");
-        Typeface fontHelveticaObl = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica-Oblique.ttf");
-
-        tvTitle.setText(  getPageTitle(position));
-        tvDoaAbrab.setText(getDoaArab(position));
+        tvTitle.setText(getPageTitle(position));
+        tvDoaArab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
-
-        tvTitle.setTypeface(fontHelvetica);
-        tvDoaAbrab.setTypeface(fontHelvetica);
-        tvDoa.setTypeface(fontHelvetica);
-        tvHadis.setTypeface(fontHelvetica);
-        tvHadisTitle.setTypeface(fontHelvetica);
+        setFonts();
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -71,12 +63,10 @@ public class FragmentPage extends Fragment {
                 if(ivDown.getVisibility() == View.VISIBLE){
                     svHadis.setVisibility(View.GONE);
                     ivDown.setVisibility(View.GONE);
-                    tvHadisTitle.setText(R.string.showHadis);
                     ivUp.setVisibility(View.VISIBLE);
                 }else{
                     svHadis.setVisibility(View.VISIBLE);
                     ivDown.setVisibility(View.VISIBLE);
-                    tvHadisTitle.setText(R.string.hideHadis);
                     ivUp.setVisibility(View.GONE);
                 }
             }
@@ -94,7 +84,6 @@ public class FragmentPage extends Fragment {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
         return getActivity().getBaseContext().getString(customPagerEnum.getmTitleResId());
     }
-
 
     public CharSequence getDoaArab(int position) {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
@@ -171,4 +160,23 @@ public class FragmentPage extends Fragment {
             return mHadisResId;
         }
     }
+
+
+    public void setFonts(){
+        Typeface fontHelvetica = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica.ttf");
+        Typeface fontHelveticaObl = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica-Oblique.ttf");
+
+        tvTitle.setTypeface(fontHelvetica);
+        tvDoaArab.setTypeface(fontHelvetica);
+        tvDoa.setTypeface(fontHelvetica);
+        tvHadis.setTypeface(fontHelvetica);
+        tvHadisTitle.setTypeface(fontHelvetica);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
 }
