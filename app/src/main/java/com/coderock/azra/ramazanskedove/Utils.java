@@ -102,7 +102,7 @@ public class Utils {
 
     public static String getCurrentMonthAsString(){
         Date today = new Date();
-        String intMonth = (String) android.text.format.DateFormat.format("MM", today); //example "06
+        String intMonth = (String) android.text.format.DateFormat.format("MM", today); //example "06"
         return convertIntMonthToBosnianMonthName(intMonth);
     }
 

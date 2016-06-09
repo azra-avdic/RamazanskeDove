@@ -8,20 +8,43 @@
     android:gravity="center_horizontal"
     tools:background="@drawable/green">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_marginTop="@dimen/today_title_margin_top_bottom"
+    <RelativeLayout
+        android:id="@+id/rlTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/test_title"
-        android:textStyle="bold|italic"
-        android:textColor="@color/orange"
-        android:textSize="@dimen/doa_title_text_size"
         android:layout_alignParentTop="true"
-        android:gravity="center" />
+        android:layout_marginTop="@dimen/today_title_margin_top_bottom"
+        >
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rewind"
+            android:tint="@color/orange"
+            android:visibility = "visible"
+            tools:visibility ="visible"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:text="Dova za 1. dan Ramazana"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/today_title_text_size"
+            />
+
+
+    </RelativeLayout>
+
+
 
     <ScrollView
-        android:layout_below="@+id/tvTitle"
+        android:layout_below="@+id/rlTitle"
         android:layout_above="@+id/llHadis"
         android:id="@+id/svContent"
         android:layout_width="wrap_content"

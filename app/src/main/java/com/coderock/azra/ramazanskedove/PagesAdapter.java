@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class PagesAdapter extends FragmentPagerAdapter {
+    private FragmentPage.onRewindClickListener rewindClickListener;
 
     private Context mContext;
     public PagesAdapter(FragmentManager fragmentManager, Context c) {
@@ -13,9 +14,12 @@ public class PagesAdapter extends FragmentPagerAdapter {
         mContext = c;
     }
 
+
     @Override
     public Fragment getItem(int position) {
-        return FragmentPage.newInstance(position);
+        FragmentPage fragmentPage = FragmentPage.newInstance(position);
+        fragmentPage.setRewindClickListener(rewindClickListener);
+        return fragmentPage;
     }
 
     @Override
@@ -28,6 +32,10 @@ public class PagesAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         FragmentPage.CustomPagerEnum customPagerEnum = FragmentPage.CustomPagerEnum.values()[position];
         return mContext.getString(customPagerEnum.getmTitleResId());
+    }
+
+    public void setRewindClickListener(FragmentPage.onRewindClickListener rewindClickListener) {
+        this.rewindClickListener = rewindClickListener;
     }
 
 

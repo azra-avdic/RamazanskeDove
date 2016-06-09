@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,9 @@ public class FragmentPage extends Fragment {
     @BindView(R.id.ivUp) ImageView ivUp;
     @BindView(R.id.ivDown) ImageView ivDown;
     @BindView(R.id.svHadis) ScrollView svHadis;
+    @BindView(R.id.ivBack) ImageView ivBack;
+
+    private onRewindClickListener rewindClickListener;
 
     // newInstance constructor for creating fragment with argument
     public static FragmentPage newInstance(int position) {
@@ -55,6 +59,7 @@ public class FragmentPage extends Fragment {
         tvDoaArab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
+        ivBack.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
         setFonts();
 
         View.OnClickListener listener = new View.OnClickListener() {
@@ -75,6 +80,14 @@ public class FragmentPage extends Fragment {
         tvHadisTitle.setOnClickListener(listener);
         ivUp.setOnClickListener(listener);
         ivDown.setOnClickListener(listener);
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TAG", "onClick");
+                rewindClickListener.onRewindClick();
+            }
+        });
 
         return view;
     }
@@ -161,7 +174,6 @@ public class FragmentPage extends Fragment {
         }
     }
 
-
     public void setFonts(){
         Typeface fontHelvetica = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica.ttf");
         Typeface fontHelveticaObl = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica-Oblique.ttf");
@@ -179,4 +191,11 @@ public class FragmentPage extends Fragment {
         unbinder.unbind();
     }
 
+    public interface onRewindClickListener{
+         void onRewindClick();
+    }
+
+    public void setRewindClickListener(onRewindClickListener rewindClickListener) {
+        this.rewindClickListener = rewindClickListener;
+    }
 }

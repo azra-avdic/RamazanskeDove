@@ -17,6 +17,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +30,7 @@ import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentPage.onRewindClickListener {
 
     @BindView(R.id.tvSinglePageContent) TextView tvSinglePageContent;
     @BindView(R.id.svSinglePageContent) ScrollView svSinglePageContent;
@@ -58,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         }
         mTitle = getTitle();
 
-        viewPager.setAdapter(new PagesAdapter(getSupportFragmentManager(),this));
+        PagesAdapter pagesAdapter = new PagesAdapter(getSupportFragmentManager(),this);
+        pagesAdapter.setRewindClickListener(this);
+        viewPager.setAdapter(pagesAdapter);
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
         if (tvToday != null) {
@@ -95,12 +98,17 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
     }
 
+    @Override
+    public void onRewindClick() {
+        Log.d("TAG", "onRewindClick callback");
+        viewPager.setCurrentItem(0);
+    }
+
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
-
     }
 
     private void selectItem(int position) {
@@ -188,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setSelection(0);
         mDrawerList.setItemChecked(0, true);
 
+        //todo check if this toggle is necessary
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 mDrawerLayout,
