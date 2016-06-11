@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +21,24 @@ public class FragmentPage extends Fragment {
     private int position;
     private Unbinder unbinder;
 
-    @BindView(R.id.tvTitle) TextView tvTitle;
-    @BindView(R.id.tvDoaArab) TextView tvDoaArab;
-    @BindView(R.id.tvDoa) TextView tvDoa;
-    @BindView(R.id.tvHadisContent) TextView tvHadis;
-    @BindView(R.id.tvHadisTitle) TextView tvHadisTitle;
-    @BindView(R.id.ivUp) ImageView ivUp;
-    @BindView(R.id.ivDown) ImageView ivDown;
-    @BindView(R.id.svHadis) ScrollView svHadis;
-    @BindView(R.id.ivBack) ImageView ivBack;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
+    @BindView(R.id.tvDoaArab)
+    TextView tvDoaArab;
+    @BindView(R.id.tvDoa)
+    TextView tvDoa;
+    @BindView(R.id.tvHadisContent)
+    TextView tvHadis;
+    @BindView(R.id.tvHadisTitle)
+    TextView tvHadisTitle;
+    @BindView(R.id.ivUp)
+    ImageView ivUp;
+    @BindView(R.id.ivDown)
+    ImageView ivDown;
+    @BindView(R.id.svHadis)
+    ScrollView svHadis;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
 
     private onRewindClickListener rewindClickListener;
 
@@ -65,11 +75,11 @@ public class FragmentPage extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ivDown.getVisibility() == View.VISIBLE){
+                if (ivDown.getVisibility() == View.VISIBLE) {
                     svHadis.setVisibility(View.GONE);
                     ivDown.setVisibility(View.GONE);
                     ivUp.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     svHadis.setVisibility(View.VISIBLE);
                     ivDown.setVisibility(View.VISIBLE);
                     ivUp.setVisibility(View.GONE);
@@ -174,7 +184,7 @@ public class FragmentPage extends Fragment {
         }
     }
 
-    public void setFonts(){
+    public void setFonts() {
         Typeface fontHelvetica = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica.ttf");
         Typeface fontHelveticaObl = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Helvetica-Oblique.ttf");
 
@@ -191,11 +201,13 @@ public class FragmentPage extends Fragment {
         unbinder.unbind();
     }
 
-    public interface onRewindClickListener{
-         void onRewindClick();
+    public interface onRewindClickListener {
+        void onRewindClick();
     }
 
     public void setRewindClickListener(onRewindClickListener rewindClickListener) {
         this.rewindClickListener = rewindClickListener;
     }
+
+
 }

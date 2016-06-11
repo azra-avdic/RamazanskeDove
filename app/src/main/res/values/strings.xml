@@ -163,6 +163,7 @@ Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt f
    <string name="email_dialog_title">Pošalji email koristeći...</string>
    <string name="email_exception_toast_mssg">Email client nije instaliran na vašem telefonu.</string>
    <string name="email_mailto">avdic.azra@gmail.com</string>
+   <string name="btn_ok_txt">Ok, shvatio/la sam</string>
 
 
 </resources>

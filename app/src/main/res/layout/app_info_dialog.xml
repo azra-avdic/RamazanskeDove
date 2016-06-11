@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/llroot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:padding="15dp"
+    android:layout_gravity="center"
+    android:background="@drawable/info_dialog_rounded_background">
+
+    <TextView
+        android:id="@+id/tvAppInfoTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instrukcije za aplikaciju"
+        android:gravity="center_horizontal"
+        android:textColor="@color/green_light"
+        android:textStyle="bold"
+        android:textSize="@dimen/today_title_text_size"
+        />
+
+    <ScrollView
+        android:id="@+id/svAppInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvAppInfoTitle"
+        android:layout_above="@+id/btnOk">
+        <TextView
+            android:id="@+id/tvAppInfo"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana. Po otvaranju aplikacije, otvara se dova za trenutni dan Ramazana. Možete slobodno prelistati i sljedeće i prethodne dane tako da je svih 29 dova uvijek dostupno. Pritiskom na na ovo duugme možete se vratiti direktno na 1. dovu:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:drawableBottom="@drawable/rewind"
+            android:drawableTint="@color/orange"
+            android:drawablePadding="10dp"
+            />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ok_txt"
+        android:background="@drawable/button_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/dark_green_selected"
+        android:textAllCaps="false"
+        />
+
+
+</RelativeLayout>
