@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements FragmentPage.onRe
         }
         mTitle = getTitle();
 
-        PagesAdapter pagesAdapter = new PagesAdapter(getSupportFragmentManager(),this);
+        PagesAdapter pagesAdapter = new PagesAdapter(getSupportFragmentManager(), this);
         pagesAdapter.setRewindClickListener(this);
         viewPager.setAdapter(pagesAdapter);
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
@@ -312,4 +312,10 @@ public class MainActivity extends AppCompatActivity implements FragmentPage.onRe
             return AppStart.NORMAL;
         }
     }
+
+
+
+
+
+
 }

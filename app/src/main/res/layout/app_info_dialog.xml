@@ -25,21 +25,51 @@
     <ScrollView
         android:id="@+id/svAppInfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvAppInfoTitle"
-        android:layout_above="@+id/btnOk">
-        <TextView
-            android:id="@+id/tvAppInfo"
-            android:layout_marginTop="10dp"
+        android:layout_above="@+id/btnOk"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana. Po otvaranju aplikacije, otvara se dova za trenutni dan Ramazana. Možete slobodno prelistati i sljedeće i prethodne dane tako da je svih 29 dova uvijek dostupno. Pritiskom na na ovo duugme možete se vratiti direktno na 1. dovu:"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:drawableBottom="@drawable/rewind"
-            android:drawableTint="@color/orange"
-            android:drawablePadding="10dp"
-            />
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvAppInfoIntro"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info_intro"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                />
+            <ImageView
+                android:id="@+id/ivOptions"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tvAppInfoIntro"
+                android:layout_width="@dimen/calendar_image_size"
+                android:layout_height="@dimen/calendar_image_size"
+                android:padding="@dimen/calendar_image_padding"
+                android:src="@drawable/ico_down"
+                android:tint="@color/green_light"
+                android:visibility = "visible"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:id="@+id/tvAppInfo1"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/ivOptions"
+                android:layout_below="@+id/tvAppInfoIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info_1"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                />
+
+        </RelativeLayout>
+
 
     </ScrollView>
 

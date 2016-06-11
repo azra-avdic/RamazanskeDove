@@ -5,8 +5,29 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/dark_green</item>
         <item name="colorPrimaryDark">@android:color/transparent</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/green_light</item>
+        <item name="android:popupMenuStyle">@style/myPopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/myPopupMenuTextAppearanceLarge</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/myPopupMenuTextAppearanceLarge</item>
+        <item name="textAppearanceSmallPopupMenu">@style/myPopupMenuTextAppearanceSmall</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/myPopupMenuTextAppearanceSmall</item>
     </style>
+
+    <style name="myPopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@drawable/menu_background</item>
+
+    </style>
+    <style name="myPopupMenuTextAppearanceSmall" parent="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
+        <item name="android:textColor">@drawable/menu_item_enabled</item>
+        <item name="android:textSize">@dimen/today_title_text_size</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearanceLarge" parent="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+        <item name="android:textColor">@drawable/menu_item_enabled</item>
+        <item name="android:textSize">@dimen/today_title_text_size</item>
+    </style>
+
+
 
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
@@ -19,6 +40,7 @@
         <item name="android:textSize">@dimen/doa_title_text_size</item>
         <item name="android:gravity">center</item>
     </style>
+
 
 
 </resources>

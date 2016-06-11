@@ -22,6 +22,7 @@
     <color name="orange">#F65F4E</color>
     <color name="border_gray">#5A6873</color>
 
-    <color name="dark_green_selected_80">#E60F3A39</color>
+    <color name="dark_green_selected_90">#E60F3A39</color>
+    <color name="dark_green_selected_50">#800F3A39</color>
 
 </resources>

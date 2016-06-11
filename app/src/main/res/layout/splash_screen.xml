@@ -27,7 +27,7 @@
         style="@style/ToolbarTitle"
         />
     <TextView
-        android:id="@+id/tvAppInfo"
+        android:id="@+id/tvAppInfoIntro"
         android:layout_below="@+id/tvAppName"
         android:layout_centerHorizontal="true"
         android:layout_width="240dp"

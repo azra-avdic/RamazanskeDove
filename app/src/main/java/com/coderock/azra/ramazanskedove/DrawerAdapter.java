@@ -43,8 +43,9 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
         holder.imageViewIcon.setImageResource(drawerItem.icon);
         holder.tvOption.setText(drawerItem.name);
 
+        Typeface fontHelvetica = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica.ttf");
         Typeface fontHelveticaNeueItalic = Typeface.createFromAsset(mContext.getAssets(),"fonts/HelveticaNeue-Italic.otf");
-        holder.tvOption.setTypeface(fontHelveticaNeueItalic);
+        holder.tvOption.setTypeface(fontHelvetica);
 
         return view;
     }

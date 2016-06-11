@@ -14,16 +14,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="@dimen/today_title_margin_top_bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
         <ImageView
-            android:id="@+id/ivBack"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rewind"
-            android:tint="@color/orange"
+            android:id="@+id/ivOptions"
+            android:layout_width="@dimen/calendar_image_size"
+            android:layout_height="@dimen/calendar_image_size"
+            android:padding="@dimen/calendar_image_padding"
+            android:src="@drawable/ico_down"
+            android:tint="@color/green_light"
             android:visibility = "visible"
             tools:visibility ="visible"
             android:layout_centerVertical="true"
@@ -33,16 +33,14 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivOptions"
             tools:text="Dova za 1. dan Ramazana"
-            android:textColor="@color/orange"
+            android:textColor="@color/green_light"
             android:textSize="@dimen/today_title_text_size"
             />
 
-
     </RelativeLayout>
-
-
 
     <ScrollView
         android:layout_below="@+id/rlTitle"
@@ -53,7 +51,7 @@
         android:fadeScrollbars="false"
         tools:background = "@color/white_50"
         >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -70,10 +68,12 @@
                 android:padding="@dimen/doa_text_padding"
                 android:gravity="center"
                 android:visibility="gone"
+                android:layout_alignParentTop="true"
                 />
 
             <TextView
                 android:id="@+id/tvDoa"
+                android:layout_below="@+id/tvDoaArab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/daily_doa1"
@@ -86,8 +86,12 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 />
-        </LinearLayout>
+
+
+        </RelativeLayout>
     </ScrollView>
+
+
 
     <include
         android:id="@+id/llHadis"

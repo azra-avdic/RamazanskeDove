@@ -165,6 +165,18 @@ Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt f
    <string name="email_mailto">avdic.azra@gmail.com</string>
    <string name="btn_ok_txt">Ok, shvatio/la sam</string>
 
+   <string name="app_info_intro">Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana.
+       Po otvaranju aplikacije, otvara se dova za trenutni dan Ramazana.
+       Možete slobodno prelistati i sljedeće i prethodne dane tako da je svih 29 dova uvijek dostupno.</string>
+   <string name="app_info_1"> Pritisnite ovo dugme da biste dobili opcije:
+       \n\'Vrati se na 1. dovu\'
+       \n\'Pošalji dovu\'</string>
+
+    <string name="menu_option_1">Vrati se na 1. dovu</string>
+    <string name="menu_option_2">Pošalji dovu</string>
+
+    <string name="share_dialog_title">Pošalji dovu koristeći..</string>
+
 
 </resources>
 

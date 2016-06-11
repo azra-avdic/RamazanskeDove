@@ -1,25 +1,42 @@
 package com.coderock.azra.ramazanskedove;
 
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class FragmentPage extends Fragment {
     public static final String POSITION = "POSITION";
+    public static final String viberId ="com.viber.voip";
+    public static final String msnId ="com.facebook.orca";
+    public static final String whatsup = "com.whatsapp";
     private int position;
     private Unbinder unbinder;
+    private onRewindClickListener rewindClickListener;
+
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -37,10 +54,8 @@ public class FragmentPage extends Fragment {
     ImageView ivDown;
     @BindView(R.id.svHadis)
     ScrollView svHadis;
-    @BindView(R.id.ivBack)
-    ImageView ivBack;
-
-    private onRewindClickListener rewindClickListener;
+    @BindView(R.id.ivOptions)
+    ImageView ivOptions;
 
     // newInstance constructor for creating fragment with argument
     public static FragmentPage newInstance(int position) {
@@ -69,7 +84,7 @@ public class FragmentPage extends Fragment {
         tvDoaArab.setText(getDoaArab(position));
         tvDoa.setText(getDoa(position));
         tvHadis.setText(getHadis(position));
-        ivBack.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
+
         setFonts();
 
         View.OnClickListener listener = new View.OnClickListener() {
@@ -91,17 +106,43 @@ public class FragmentPage extends Fragment {
         ivUp.setOnClickListener(listener);
         ivDown.setOnClickListener(listener);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
+        ivOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("TAG", "onClick");
-                rewindClickListener.onRewindClick();
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(getContext(), ivOptions);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater()
+                        .inflate(R.menu.dropdown_menu, popup.getMenu());
+                if(position == 0 ){
+                    Menu popupMenu = popup.getMenu();
+                    popupMenu.findItem(R.id.back).setEnabled(false);
+                }
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.back:
+                                rewindClickListener.onRewindClick();
+                                return true;
+                            case R.id.share:
+                                share();
+                                return true;
+                            default:
+                                return true;
+                        }
+                    }
+                });
+
+                popup.show(); //showing popup menu
             }
+
         });
 
         return view;
     }
-
 
     public CharSequence getPageTitle(int position) {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
@@ -207,6 +248,39 @@ public class FragmentPage extends Fragment {
 
     public void setRewindClickListener(onRewindClickListener rewindClickListener) {
         this.rewindClickListener = rewindClickListener;
+    }
+
+    protected void share() {
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+
+        List<Intent> targetedShareIntents = new ArrayList<Intent>();
+        List<ResolveInfo> resInfo = getActivity().getPackageManager().queryIntentActivities(shareIntent, 0);
+        if (!resInfo.isEmpty()) {
+            for (ResolveInfo resolveInfo : resInfo) {
+                String packageName = resolveInfo.activityInfo.packageName;
+                Intent targetedShareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                if (TextUtils.equals(packageName, msnId)|| TextUtils.equals(packageName, viberId)) {
+                    targetedShareIntent.setType("text/plain");
+                    String message = "\"" + (String) getDoa(position) + "\"" + " - preuzeto iz aplikacije " ;
+                    String appLink = "https://play.google.com/store/apps/details?id=com.coderock.azra.ramazanskedove";
+                    String appShortLink = "https://goo.gl/A5J1ZV";
+                    targetedShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, message + appShortLink);
+                    targetedShareIntent.setPackage(packageName);
+                    targetedShareIntents.add(targetedShareIntent);
+                }
+            }
+            if(targetedShareIntents.size() != 0) {
+                Intent chooserIntent = Intent.createChooser(targetedShareIntents.get(0), Utils.getString(getContext(), R.string.share_dialog_title));
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[targetedShareIntents.size()]));
+                startActivity(chooserIntent);
+            } else
+            {
+                Toast.makeText(getContext(), "Aplikacije Facebook Messanger i Viber nisu instalirane na vašem uređaju.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
 
