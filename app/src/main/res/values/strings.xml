@@ -159,23 +159,32 @@ Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt f
 
     <!-- For testing -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
-   <string name="email_subject">Ramazanske dove - Pitanja i sugestije</string>
+
+    <!-- Contact form -->
+    <string name="email_subject">Ramazanske dove - Pitanja i sugestije</string>
    <string name="email_dialog_title">Pošalji email koristeći...</string>
    <string name="email_exception_toast_mssg">Email client nije instaliran na vašem telefonu.</string>
    <string name="email_mailto">avdic.azra@gmail.com</string>
    <string name="btn_ok_txt">Ok, shvatio/la sam</string>
 
-   <string name="app_info_intro">Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana.
+    <!--App Start Dialog-->
+    <string name="app_info_title">Instrukcije za aplikaciju</string>
+    <string name="app_info_intro">Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana.
        Po otvaranju aplikacije, otvara se dova za trenutni dan Ramazana.
        Možete slobodno prelistati i sljedeće i prethodne dane tako da je svih 29 dova uvijek dostupno.</string>
-   <string name="app_info_1"> Pritisnite ovo dugme da biste dobili opcije:
+    <string name="app_info_1"> Pritisnite ovo dugme da biste dobili opcije:
        \n\'Vrati se na 1. dovu\'
        \n\'Pošalji dovu\'</string>
 
+    <string name="app_info_update_title">Update info</string>
+    <string name="app_info_update_intro">Novi update vam donosi: </string>
+
+    <!--Dropdown menu-->
     <string name="menu_option_1">Vrati se na 1. dovu</string>
     <string name="menu_option_2">Pošalji dovu</string>
-
     <string name="share_dialog_title">Pošalji dovu koristeći..</string>
+
+
 
 
 </resources>

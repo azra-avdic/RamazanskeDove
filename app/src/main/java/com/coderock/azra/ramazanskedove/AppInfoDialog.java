@@ -15,20 +15,28 @@ import android.widget.TextView;
 public class AppInfoDialog {
 
     private static Dialog dialog;
-    private static String text;
+    private static MainActivity.AppStart appStart;
 
-    public static void showDialog(Context context, String text) {
+    public static void showDialog(Context context, MainActivity.AppStart appStart) {
         dialog = new Dialog(context);
-        AppInfoDialog.text = text;
+        AppInfoDialog.appStart = appStart;
         dialog.setCancelable(true);
-
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.app_info_dialog);
+        switch (appStart) {
+            case FIRST_TIME_VERSION:
+                dialog.setContentView(R.layout.app_info_update_dialog);
+                break;
+            case FIRST_TIME:
+                dialog.setContentView(R.layout.app_info_dialog);
+                break;
+            default:
+                dialog.setContentView(R.layout.app_info_dialog);
+                break;
+        }
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-        //TextView tvDialogText = (TextView) dialog.findViewById(R.id.tvAppInfo);
-        // tvDialogText.setText(text);
+
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +60,7 @@ public class AppInfoDialog {
 
     public static void showSameDialog(Context context) {
         dialog.dismiss();
-        showDialog(context, text);
+        showDialog(context, appStart);
     }
 
 }

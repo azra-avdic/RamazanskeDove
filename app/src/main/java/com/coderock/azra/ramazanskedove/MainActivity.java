@@ -83,25 +83,9 @@ public class MainActivity extends AppCompatActivity implements FragmentPage.onRe
 
         setFonts();
 
-        switch (checkAppStart()) {
-            case NORMAL:
-                //Utils.showToast(this, "Normal");
-                // We don't want to get on the user's nerves
-                AppInfoDialog.showDialog(this, " String argument-currently ignored");
-
-                break;
-            case FIRST_TIME_VERSION:
-                AppInfoDialog.showDialog(this, " String argument-currently ignored");
-                //Utils.showToast(this, "First time for this new version");
-                // TODO show what's new
-                break;
-            case FIRST_TIME:
-                AppInfoDialog.showDialog(this, "  String argument-currently ignored");
-                //Utils.showToast(this, "First time ever");
-                // TODO show a tutorial
-                break;
-            default:
-                break;
+        AppStart appStart = checkAppStart();
+        if(appStart != AppStart.NORMAL){
+            AppInfoDialog.showDialog(this, appStart);
         }
     }
 
