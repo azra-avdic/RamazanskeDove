@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">RamazanskeDove</string>
+
+    <!--  Splash Activity -->
+    <string name="app_name_splash">Ramazanske dove <sup><small>&#169;</small></sup></string>
+    <string name="app_name_tm"> Ramazanske dove &#169;</string>
+    <string name="splach_text">Dova je nerazdvojivi dio ramazanskog posta.</string>
+
+    <!--  Drawer Activity -->
     <string-array name="navigation_drawer_items_array">
         <item>Ramazanske dove</item>
         <item>Iftarska dova</item>
@@ -9,6 +16,26 @@
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+
+    <!--  Main Activity -->
+    <string name="toolbar_title">Ramazanske dove</string>
+    <string name="test_title">1. Ramazan</string>
+
+    <!--  Main Activity -single page contents -->
+    <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="iftar_doa">ALLAAHUMME INNII LEKE SUMTU VE BIKE AAMENTU VE \'ALEJKE TEVEKKELTU VE \'ALAA RIZKIKE EFTARTU. \n \n
+                            Allahu moj, Tebi sam postio, u Tebe vjerujem, u Tebe se uzdam i onim što si mi Ti dao, iftarim se.</string>
+    <string name="about_app">Dova je nerazdvojivi dio ramazanskog posta. Uzvišeni je rekao: \"A kada  te robovi Moji za Mene upitaju, Ja sam, sigurno blizu: odazivam se molbi molitelja kada Me zamoli. Zato neka oni pozivu Mome udovolje i neka vjeruju u mene, da bi bili na pravom putu.\" (El-Bekare, 186.)\n \n
+                            U hadisima se navodi da je dova vjernikovo oružje, najbolji lijek i neprijatelj belaja i nesreća. Ona tjera nesreću, neutrališe je, sprječava njeno dešavanje i ublažava je kada se desi. \n \n
+Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana. Možete slobodno prelistati i sljedeće i prethodne dane tako da u jednom danu možete izgovoriti svih 30 dova. \n \n
+Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt forme.
+ </string>
+    <string name="contact"> Za sva pitanja i sugestije, molimo obratite se putem emaila: \n \n avdic.azra@gmail.com </string>
+
+    <!--  Main Activity -pages contents -->
+
+    <string name="showHadis">Hadis</string>
+    <string name="hideHadis">Sakrij Hadis</string>
 
     <string name="day1_title">Dova za 1. dan Ramazana</string>
     <string name="day2_title">Dova za 2. dan Ramazana</string>
@@ -40,9 +67,7 @@
     <string name="day28_title">Dova za 28. dan Ramazana</string>
     <string name="day29_title">Dova za 29. dan Ramazana</string>
 
-
-
-<string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
+    <string name="daily_doa1_arabic">ELHAMDULILAHI RABBI</string>
     <string name="daily_doa2_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH</string>
     <string name="daily_doa3_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH</string>
     <string name="daily_doa4_arabic">ELHAMDULILAHI RABBIL-ALEMIN. VESSELATU  VESSELAMU ALA RESULILAH.</string>
@@ -132,27 +157,35 @@
     <string name="daily_hadis28">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko sakrije sramotu svoga brata na dunjaluku, Allah će sakriti njegovu i na dunjaluku i na ahiretu.\" (Buharija i Muslim) </string>
     <string name="daily_hadis29">Allahov Poslanik, s.a.v.s, da je rekao: \"Ko hoće da ima lijep spomen iza sebe i da mu se poveća opkrba, neka čuva rodbinske veze.\" (Buharija i Muslim) </string>
 
-    <string name="app_name_splash">Ramazanske dove <sup><small>&#169;</small></sup></string>
-    <string name="app_name_tm"> Ramazanske dove &#169;</string>
-
-
-    <string name="toolbar_title_">Ramazanske dove</string>
-    <string name="test_title">1. Ramazan</string>
+    <!-- For testing -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
+    <!-- Contact form -->
+    <string name="email_subject">Ramazanske dove - Pitanja i sugestije</string>
+   <string name="email_dialog_title">Pošalji email koristeći...</string>
+   <string name="email_exception_toast_mssg">Email client nije instaliran na vašem telefonu.</string>
+   <string name="email_mailto">avdic.azra@gmail.com</string>
+   <string name="btn_ok_txt">Ok, shvatio/la sam</string>
 
-    <string name="sehur_doa">Sehur  dova Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-    <string name="iftar_doa">ALLAAHUMME INNII LEKE SUMTU VE BIKE AAMENTU VE \'ALEJKE TEVEKKELTU VE \'ALAA RIZKIKE EFTARTU. \n \n
-                            Allahu moj, Tebi sam postio, u Tebe vjerujem, u Tebe se uzdam i onim što si mi Ti dao, iftarim se.</string>
-    <string name="about_app">Dova je nerazdvojivi dio ramazanskog posta. Uzvišeni je rekao: \"A kada  te robovi Moji za Mene upitaju, Ja sam, sigurno blizu: odazivam se molbi molitelja kada Me zamoli. Zato neka oni pozivu Mome udovolje i neka vjeruju u mene, da bi bili na pravom putu.\" (El-Bekare, 186.)\n \n
-                            U hadisima se navodi da je dova vjernikovo oružje, najbolji lijek i neprijatelj belaja i nesreća. Ona tjera nesreću, neutrališe je, sprječava njeno dešavanje i ublažava je kada se desi. \n \n
-Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana. Možete slobodno prelistati i sljedeće i prethodne dane tako da u jednom danu možete izgovoriti svih 30 dova. \n \n
-Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt forme.
- </string>
-    <string name="contact"> Za sva pitanja i sugestije, molimo obratite se putem emaila: \n \n avdic.azra@gmail.com </string>
-    <string name="splach_text">Dova je nerazdvojivi dio ramazanskog posta.</string>
-    <string name="showHadis">Prikaži Hadis</string>
-    <string name="hideHadis">Sakrij Hadis</string>
+    <!--App Start Dialog-->
+    <string name="app_info_title">Instrukcije za aplikaciju</string>
+    <string name="app_info_intro">Ova aplikacija Vam donosi jednu dovu i jedan hadis za svaki dan mjeseca Ramazana.
+       Po otvaranju aplikacije, otvara se dova za trenutni dan Ramazana.
+       Možete slobodno prelistati i sljedeće i prethodne dane tako da je svih 29 dova uvijek dostupno.</string>
+    <string name="app_info_1"> Pritisnite ovo dugme da biste dobili opcije:
+       \n\'Vrati se na 1. dovu\'
+       \n\'Pošalji dovu\'</string>
+
+    <string name="app_info_update_title">Informacije o update-u</string>
+    <string name="app_info_update_intro">Novi update vam donosi: </string>
+
+    <!--Dropdown menu-->
+    <string name="menu_option_1">Vrati se na 1. dovu</string>
+    <string name="menu_option_2">Pošalji dovu</string>
+    <string name="share_dialog_title">Pošalji dovu koristeći..</string>
+
+
+
 
 </resources>
 

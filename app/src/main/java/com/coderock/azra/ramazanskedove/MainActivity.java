@@ -1,8 +1,12 @@
 package com.coderock.azra.ramazanskedove;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +21,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,93 +30,49 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import butterknife.BindArray;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentPage.onRewindClickListener {
 
-    // Drawer
-    private String[] mNavigationDrawerItemTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-    ActionBarDrawerToggle mDrawerToggle;
+    @BindView(R.id.tvSinglePageContent) TextView tvSinglePageContent;
+    @BindView(R.id.svSinglePageContent) ScrollView svSinglePageContent;
+    @BindView(R.id.llToday) LinearLayout llToday;
+    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.left_drawer) ListView mDrawerList;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.viewpager) ViewPager viewPager;
+    @BindView(R.id.tvToday) TextView tvToday;
+    @BindArray(R.array.navigation_drawer_items_array)  String[] mNavigationDrawerItemTitles;
 
+    private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mTitle; // current title
-    private ViewPager viewPager;
-    private TextView tvSinglePageContent;
-    private ScrollView svSinglePageContent;
-    private LinearLayout llToday;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
-        Typeface fontHelveticaObl = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica-Oblique.ttf");
-        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Utils.getString(this, R.string.toolbar_title));
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
+        mTitle = getTitle();
 
-        // Set the padding to match the Status Bar height
-        // toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
-        getSupportActionBar().setTitle("Ramazanske dove");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new com.coderock.azra.ramazanskedove.CustomPagerAdapter(this));
+        PagesAdapter pagesAdapter = new PagesAdapter(getSupportFragmentManager(), this);
+        pagesAdapter.setRewindClickListener(this);
+        viewPager.setAdapter(pagesAdapter);
         viewPager.setCurrentItem(Utils.getDayInRamadan() < 0 ? 0 : Utils.getDayInRamadan());
 
-        TextView tvToday = (TextView) findViewById(R.id.tvToday);
         if (tvToday != null) {
-            tvToday.setText(Utils.getTodaysDateAsTitle());
+            tvToday.setText(getCurrentDateInTitleFormat());
         }
 
-        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
-
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ico_book, "Ramazanske dove");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ico_iftar, "Iftarska dova");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ico_info, "O aplikaciji");
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ico_contact, "Kontakt");
-
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
-        mDrawerList.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        mDrawerList.setSelection(0);
-        mDrawerList.setItemChecked(0, true);
-
-        mTitle = getTitle();
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                toolbar,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {
-
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-
-            }
-        };
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
+        setupDrawerList();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,33 +80,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setFonts();
 
-        tvSinglePageContent = (TextView) findViewById(R.id.tvSinglePageContent);
-        if (tvSinglePageContent != null) {
-            tvSinglePageContent.setTypeface(fontHelvetica);
+        AppStart appStart = checkAppStart();
+        if(appStart == AppStart.FIRST_TIME || appStart == AppStart.FIRST_TIME_VERSION){
+            AppInfoDialog.showDialog(this, appStart);
         }
-
-        svSinglePageContent = (ScrollView) findViewById(R.id.svSinglePageContent);
-        llToday = (LinearLayout) findViewById(R.id.llToday);
-
-        if (tvToday != null) {
-            tvToday.setTypeface(fontHelveticaNeueMedium);
-        }
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(mTitle);
+        }
     }
 
     @Override
@@ -154,12 +107,17 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
     }
 
+    @Override
+    public void onRewindClick() {
+        Log.d("TAG", "onRewindClick callback");
+        viewPager.setCurrentItem(0);
+    }
+
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
-
     }
 
     private void selectItem(int position) {
@@ -170,31 +128,27 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                //todo viewPager visible and on correct position
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
                 svSinglePageContent.setVisibility(View.GONE);
                 break;
             case 1:
-                //todo vp gone && Iftar dova
                 llToday.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.iftar_doa);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                //todo vp gone && text about app
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 tvSinglePageContent.setText(R.string.about_app);
                 svSinglePageContent.setVisibility(View.VISIBLE);
                 break;
             case 3:
-                //todo vp gone && some text for contact
                 llToday.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 svSinglePageContent.setVisibility(View.VISIBLE);
-                setClickableText();
+                setClickableText(tvSinglePageContent);
                 break;
             default:
                 break;
@@ -203,22 +157,19 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
-
     protected void sendEmail() {
-
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "avdic.azra@gmail.com", null));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramazanske dove - Pitanja i sugestije");
-        //emailIntent.putExtra(Intent.EXTRA_TEXT, "Ovdje napišite svoj feedback...");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", getString(R.string.email_mailto), null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Pošalji email koristeći..."));
+            startActivity(Intent.createChooser(emailIntent, getString(R.string.email_dialog_title)));
             finish();
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MainActivity.this, "Email client nije instaliran na vašem telefonu.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, R.string.email_exception_toast_mssg, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void setClickableText() {
+    public void setClickableText(TextView tvSinglePageContent) {
 
         String staticPart = "Za sva pitanja i sugestije, molimo obratite se putem emaila:\n\n\n";
         SpannableString clickablePart = new SpannableString("avdic.azra@gmail.com");
@@ -238,6 +189,111 @@ public class MainActivity extends AppCompatActivity {
         tvSinglePageContent.append(clickablePart);
 
         tvSinglePageContent.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void setupDrawerList(){
+        DrawerItem[] drawerItem = new DrawerItem[4];
+        drawerItem[0] = new DrawerItem(R.drawable.book, mNavigationDrawerItemTitles[0]);
+        drawerItem[1] = new DrawerItem(R.drawable.dish, mNavigationDrawerItemTitles[1]);
+        drawerItem[2] = new DrawerItem(R.drawable.information, mNavigationDrawerItemTitles[2]);
+        drawerItem[3] = new DrawerItem(R.drawable.envelope, mNavigationDrawerItemTitles[3]);
+
+        DrawerAdapter adapter = new DrawerAdapter(this, R.layout.listview_item_row, drawerItem);
+        mDrawerList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerList.setSelection(0);
+        mDrawerList.setItemChecked(0, true);
+
+        //todo check if this toggle is necessary
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                toolbar,
+                R.string.drawer_open,
+                R.string.drawer_close
+        ) {
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {super.onDrawerOpened(drawerView);}
+        };
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+    public void setFonts(){
+        Typeface fontHelvetica = Typeface.createFromAsset(this.getAssets(), "fonts/Helvetica.ttf");
+        Typeface fontHelveticaNeueMedium = Typeface.createFromAsset(this.getAssets(), "fonts/HelveticaNeue-Medium.otf");
+
+        if (tvSinglePageContent != null) {
+            tvSinglePageContent.setTypeface(fontHelvetica);
+        }
+
+        if (tvToday != null) {
+            tvToday.setTypeface(fontHelveticaNeueMedium);
+        }
+    }
+
+    public static String getCurrentDateInTitleFormat(){
+        if(Utils.getDayInRamadan() < 0){
+            return Utils.getTodayDayAndMonthAsString();
+        }else {
+            int day = Utils.getDayInRamadan() + 1;
+            String ramadanDate = day + ". Ramazan";
+            return Utils.getTodayDayAndMonthAsString() + " / " + ramadanDate;
+        }
+    }
+
+    //App Start
+    public enum AppStart {
+        FIRST_TIME, FIRST_TIME_VERSION, NORMAL;
+    }
+
+    /**
+     * The app version code (not the version name!) that was used on the last
+     * start of the app.
+     */
+    private static final String LAST_APP_VERSION = "last_app_version";
+
+    public AppStart checkAppStart() {
+        PackageInfo pInfo;
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        AppStart appStart = AppStart.NORMAL;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            int lastVersionCode = sharedPreferences
+                    .getInt(LAST_APP_VERSION, -1);
+            int currentVersionCode = pInfo.versionCode;
+            appStart = checkAppStart(currentVersionCode, lastVersionCode);
+            // Update version in preferences
+            sharedPreferences.edit()
+                    .putInt(LAST_APP_VERSION, currentVersionCode).commit();
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w("LOG",
+                    "Unable to determine current app version from pacakge manager. Defenisvely assuming normal app start.");
+        }
+        return appStart;
+    }
+
+    public AppStart checkAppStart(int currentVersionCode, int lastVersionCode) {
+        if (lastVersionCode == -1) {
+            return AppStart.FIRST_TIME;
+        } else if (lastVersionCode < currentVersionCode) {
+            return AppStart.FIRST_TIME_VERSION;
+        } else if (lastVersionCode > currentVersionCode) {
+            Log.w("LOG", "Current version code (" + currentVersionCode
+                    + ") is less then the one recognized on last startup ("
+                    + lastVersionCode
+                    + "). Defenisvely assuming normal app start.");
+            return AppStart.NORMAL;
+        } else {
+            return AppStart.NORMAL;
+        }
     }
 
 }

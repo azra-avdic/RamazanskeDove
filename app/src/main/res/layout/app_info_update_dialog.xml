@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/llroot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:padding="15dp"
+    android:layout_gravity="center"
+    android:background="@drawable/info_dialog_rounded_background">
+
+    <TextView
+        android:id="@+id/tvAppInfoTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_info_update_title"
+        android:gravity="center_horizontal"
+        android:textColor="@color/green_light"
+        android:textStyle="bold"
+        android:textSize="@dimen/today_title_text_size"
+        />
+
+    <ScrollView
+        android:id="@+id/svAppInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAppInfoTitle"
+        android:layout_above="@+id/btnOk"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvAppInfoIntro"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info_update_intro"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                />
+            <ImageView
+                android:id="@+id/ivOptions"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tvAppInfoIntro"
+                android:layout_width="@dimen/calendar_image_size"
+                android:layout_height="@dimen/calendar_image_size"
+                android:padding="@dimen/calendar_image_padding"
+                android:src="@drawable/ico_down"
+                android:tint="@color/green_light"
+                android:visibility = "visible"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:id="@+id/tvAppInfo1"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/ivOptions"
+                android:layout_below="@+id/tvAppInfoIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info_1"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
+                />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ok_txt"
+        android:background="@drawable/button_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/dark_green_selected"
+        android:textAllCaps="false"
+        />
+
+
+</RelativeLayout>

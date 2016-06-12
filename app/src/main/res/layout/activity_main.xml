@@ -58,6 +58,7 @@
                     android:layout_height="@dimen/calendar_image_size"
                     android:padding="@dimen/calendar_image_padding"
                     android:src="@drawable/ico_calendar"
+                    android:tint="@color/orange"
                     />
 
                 <TextView
@@ -66,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     tools:text="1. Ramazan/ 6. Juni"
-                    android:textColor="@color/green_light"
+                    android:textColor="@color/orange"
                     android:textSize="@dimen/today_title_text_size"
                     />
 
@@ -112,7 +113,7 @@
     <ListView
         android:background="@color/dark_green"
         android:id="@+id/left_drawer"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:paddingTop="30dp"

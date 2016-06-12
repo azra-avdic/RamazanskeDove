@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
 
 android {
     signingConfigs {
@@ -14,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.coderock.azra.ramazanskedove"
         minSdkVersion 14
-        versionCode 11
+        versionCode 12
         versionName "1.0"
     }
     buildTypes {
@@ -30,4 +32,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }

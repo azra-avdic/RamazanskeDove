@@ -17,4 +17,6 @@
     <dimen name="drawer_item_size">24sp</dimen>
     <dimen name="splash_text_size">22sp</dimen>
 
+    <dimen name="drawer_width">350dp</dimen>
+
 </resources>
