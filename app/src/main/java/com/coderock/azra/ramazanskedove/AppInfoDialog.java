@@ -2,6 +2,7 @@ package com.coderock.azra.ramazanskedove;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,12 +25,15 @@ public class AppInfoDialog {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         switch (appStart) {
             case FIRST_TIME_VERSION:
+                Log.d("TAG", "FIRST_TIME_VERSION");
                 dialog.setContentView(R.layout.app_info_update_dialog);
                 break;
             case FIRST_TIME:
+                Log.d("TAG", "FIRST_TIME");
                 dialog.setContentView(R.layout.app_info_dialog);
                 break;
             default:
+                Log.d("TAG", "default");
                 dialog.setContentView(R.layout.app_info_dialog);
                 break;
         }

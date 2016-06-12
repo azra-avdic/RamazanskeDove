@@ -19,13 +19,10 @@ import android.widget.PopupMenu;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class FragmentPage extends Fragment {
@@ -36,7 +33,6 @@ public class FragmentPage extends Fragment {
     private int position;
     private Unbinder unbinder;
     private onRewindClickListener rewindClickListener;
-
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -109,7 +105,6 @@ public class FragmentPage extends Fragment {
         ivOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TAG", "onClick");
                 //Creating the instance of PopupMenu
                 PopupMenu popup = new PopupMenu(getContext(), ivOptions);
                 //Inflating the Popup using xml file
@@ -282,6 +277,4 @@ public class FragmentPage extends Fragment {
         }
 
     }
-
-
 }

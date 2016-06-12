@@ -1,6 +1,5 @@
 package com.coderock.azra.ramazanskedove;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements FragmentPage.onRe
         setFonts();
 
         AppStart appStart = checkAppStart();
-        if(appStart != AppStart.NORMAL){
+        if(appStart == AppStart.FIRST_TIME || appStart == AppStart.FIRST_TIME_VERSION){
             AppInfoDialog.showDialog(this, appStart);
         }
     }
@@ -296,10 +295,5 @@ public class MainActivity extends AppCompatActivity implements FragmentPage.onRe
             return AppStart.NORMAL;
         }
     }
-
-
-
-
-
 
 }

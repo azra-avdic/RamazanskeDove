@@ -176,7 +176,7 @@ Ukoliko imate prijedlog ili sugestiju, molimo Vas da se obratite putem kontakt f
        \n\'Vrati se na 1. dovu\'
        \n\'Pošalji dovu\'</string>
 
-    <string name="app_info_update_title">Update info</string>
+    <string name="app_info_update_title">Informacije o update-u</string>
     <string name="app_info_update_intro">Novi update vam donosi: </string>
 
     <!--Dropdown menu-->
