@@ -272,7 +272,7 @@ public class FragmentPage extends Fragment {
                 startActivity(chooserIntent);
             } else
             {
-                Toast.makeText(getContext(), "Aplikacije Facebook Messanger i Viber nisu instalirane na vašem uređaju.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.toast_app_not_installed, Toast.LENGTH_SHORT).show();
             }
         }
 

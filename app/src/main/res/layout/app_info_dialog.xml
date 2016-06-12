@@ -62,7 +62,7 @@
                 android:layout_below="@+id/tvAppInfoIntro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/app_info_1"
+                android:text="@string/app_info"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:drawablePadding="10dp"

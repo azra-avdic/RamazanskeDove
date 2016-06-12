@@ -43,29 +43,44 @@
                 android:textSize="18sp"
                 android:drawablePadding="10dp"
                 />
-            <ImageView
-                android:id="@+id/ivOptions"
+
+
+            <TextView
+                android:id="@+id/tvAppInfo2"
                 android:layout_marginTop="20dp"
+                android:paddingLeft="@dimen/calendar_image_padding"
                 android:layout_below="@+id/tvAppInfoIntro"
-                android:layout_width="@dimen/calendar_image_size"
-                android:layout_height="@dimen/calendar_image_size"
-                android:padding="@dimen/calendar_image_padding"
-                android:src="@drawable/ico_down"
-                android:tint="@color/green_light"
-                android:visibility = "visible"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info_2"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:drawablePadding="10dp"
                 />
+
             <TextView
                 android:id="@+id/tvAppInfo1"
                 android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/ivOptions"
-                android:layout_below="@+id/tvAppInfoIntro"
+                android:paddingLeft="@dimen/calendar_image_padding"
+                android:layout_below="@+id/tvAppInfo2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_info_1"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:drawablePadding="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivOptions"
+                android:layout_below="@+id/tvAppInfo1"
+                android:layout_width="@dimen/calendar_image_size"
+                android:layout_height="@dimen/calendar_image_size"
+                android:padding="@dimen/calendar_image_padding"
+                android:src="@drawable/ico_down"
+                android:tint="@color/green_light"
+                android:visibility = "visible"
+                android:layout_centerHorizontal="true"
                 />
 
         </RelativeLayout>
